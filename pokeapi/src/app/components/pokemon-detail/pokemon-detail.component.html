@@ -14,6 +14,7 @@
             </div>
         </div>
     </div>
+    <h1>General Data</h1>
     <div class="general-info base-experience">Base Experience: {{pokemon.base_experience}}</div>
     <div class="general-info pokemon-height">Height: {{pokemon.height}}</div>
     <div class="general-info pokemon-weight">Weight: {{pokemon.weight}}</div>
@@ -27,6 +28,7 @@
             </div>
         </div>
     </div> 
+    <h1>Base Stats</h1>
     <div class="pokemon-stats">
         <table class="table-stats">
             <tbody>
@@ -40,14 +42,22 @@
             </tbody>
         </table>
     </div>
+    <h1>Game Indices</h1>
+    <div class="game-indices">
+        <span class="game-indices-name" *ngFor="let indices of pokemon.game_indices">{{indices.version.name | titlecase}}</span>
+    </div>
+    <h1>Moves learnt</h1>
     <table class="table-moves">
         <tr>
-            <th>Level</th>
-            <th>Name</th>
+            <th class="th-level">Level</th>
+            <th class="th-method">Method</th>
+            <th class="th-name">Name</th>
         </tr>
         <tr *ngFor="let move of moves">
-            <td>{{move.version_group_details[0].level_learned_at}}</td>
-            <td>{{move.move.name | uppercase}}</td>
+                <td *ngIf="move.version_group_details[0].level_learned_at == 0" class="th-level">-//-</td>
+            <td *ngIf="move.version_group_details[0].level_learned_at != 0" class="th-level">{{move.version_group_details[0].level_learned_at}}</td>
+            <td class="th-method">{{move.version_group_details[0].move_learn_method.name | uppercase}}</td>
+            <td class="th-name">{{move.move.name | uppercase}}</td>
         </tr>
     </table>
 </main>

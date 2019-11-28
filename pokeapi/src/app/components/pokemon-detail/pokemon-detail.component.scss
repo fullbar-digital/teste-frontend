@@ -31,13 +31,62 @@
         text-align: right;
     }
 }
-
+.table-game-indices {
+    text-align: center;
+    margin: 0 auto;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    border-collapse: collapse;
+    td{
+        border: 1px solid black;  
+        padding: 10px;
+        background-color: pink;
+    }
+    th {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+    }
+}
+.game-indices {
+    width: 100%;
+    max-width:320px;
+    display:grid;
+    grid-template: auto/1fr 1fr;
+}
+.game-indices-name {
+    display: block;
+    margin:5px auto;
+    padding: 10px;
+    background-color: rgb(117, 117, 117);
+    border-radius: 15px;
+    width: 80px;
+}
 .table-moves {
     text-align: center;
     margin: 0 auto;
-    th {
-        text-align: center;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    border-collapse: collapse;
+    td{
+        border: 1px solid black;  
+        padding: 10px;
     }
+    th {
+        border: 1px solid black;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+.th-level {
+    background-color: rgb(167, 128, 240);
+}
+.th-method {
+    background-color: rgb(240, 214, 128);
+}
+.th-name {
+    background-color: rgb(240, 128, 128);
 }
 
 .stat-bar {
