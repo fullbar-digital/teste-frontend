@@ -1,0 +1,150 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    padding:0;
+    margin:0;
+}
+body {
+    background-color: rgb(51, 51, 51);
+}
+.bug {
+    background-color: rgb(160, 185, 69);
+    color: white;
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;
+
+}
+
+.flying {
+    background-color: rgb(155, 167, 240);
+    color: rgb(0, 0, 0);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.poison {
+    background-color: rgb(88, 39, 167);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.dark {
+    background-color:rgb(36, 36, 36);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.psychic {
+    background-color:rgb(143, 35, 101);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.water {
+    background-color:rgb(38, 137, 194);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.grass {
+    background-color:rgb(47, 141, 60);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.electric {
+    background-color:rgb(230, 230, 78);
+    color: rgb(0, 0, 0);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.fairy {
+    background-color:rgb(185, 130, 199);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.ground {
+    background-color:rgb(71, 47, 6);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.steel {
+    background-color:rgb(124, 124, 124);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.dragon {
+    background-color:rgb(179, 148, 236);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.rock {
+    background-color:rgb(97, 93, 85);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.fighting {
+    background-color:rgb(143, 80, 80);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.ice {
+    background-color:rgb(164, 237, 255);
+    color: rgb(0, 0, 0);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+
+.fire {
+    background-color:rgb(255, 127, 52);
+    color: rgb(0, 0, 0);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+.normal {
+    background-color:rgb(180, 176, 169);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}
+.ghost {
+    background-color:rgb(37, 3, 82);
+    color: rgb(255, 255, 255);
+    margin:5px 5px;
+    padding: 3px;
+    border-radius: 5px;  
+}

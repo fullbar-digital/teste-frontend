@@ -1,0 +1,86 @@
+.name {
+    text-align: center;
+}
+.pokemon-sprites {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sprite {
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.sprite-type {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.table-stats {
+    border-spacing: 10px;
+    border-collapse: separate;
+    margin: 0 auto;
+    tr {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+    th {
+        text-align: right;
+    }
+}
+
+.table-moves {
+    text-align: center;
+    margin: 0 auto;
+    th {
+        text-align: center;
+    }
+}
+
+.stat-bar {
+    background-color: rgb(127, 201, 127);
+    height: 15px;
+    padding: 5px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pokemon-stats {
+    color: white;
+}
+
+.abilities {
+    margin:0 10px;
+}
+
+.moves {
+    color: white;
+}
+
+.pokemon-ability {
+    display: flex;
+    align-items: center;
+}
+
+.grid-general-info {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.general-info {
+    max-width: 175px;
+    margin:10px auto;
+    color: white;
+    
+    @media(min-width: 550px){
+        max-width:220px;
+    }
+}

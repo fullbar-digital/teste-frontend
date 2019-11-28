@@ -1,0 +1,53 @@
+<main class="pokedex-data">
+    <h1 class="name">#{{pokemon?.id}} - {{pokemon?.name | titlecase}}</h1>
+    <div class="pokemon-sprites">
+        <div class="sprite">
+            <img [src]="pokemon?.sprites?.back_default">
+            <div class="sprite-type">
+                Back Sprite
+            </div>
+        </div>
+        <div class="sprite">
+            <img [src]="pokemon?.sprites?.front_default">
+            <div class="sprite-type">
+                Front Sprite
+            </div>
+        </div>
+    </div>
+    <div class="general-info base-experience">Base Experience: {{pokemon.base_experience}}</div>
+    <div class="general-info pokemon-height">Height: {{pokemon.height}}</div>
+    <div class="general-info pokemon-weight">Weight: {{pokemon.weight}}</div>
+    <div class="general-info pokemon-ability">
+        <div>Abilities:</div>
+        <div class="abilities">
+            <div *ngFor="let ability of pokemon.abilities">
+                {{ability.ability.name | titlecase}}
+                {{ability.ability.is_hidden}}
+                <span *ngIf="ability.is_hidden">(hidden)</span>
+            </div>
+        </div>
+    </div> 
+    <div class="pokemon-stats">
+        <table class="table-stats">
+            <tbody>
+                <tr *ngFor="let stat of pokemon.stats">
+                    <th>{{ stat.stat.name | titlecase}}</th>
+                    <td>{{stat.base_stat}}</td>
+                    <td>
+                        <div class="stat-bar" [style.width.px]="stat.base_stat/2"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <table class="table-moves">
+        <tr>
+            <th>Level</th>
+            <th>Name</th>
+        </tr>
+        <tr *ngFor="let move of moves">
+            <td>{{move.version_group_details[0].level_learned_at}}</td>
+            <td>{{move.move.name | uppercase}}</td>
+        </tr>
+    </table>
+</main>

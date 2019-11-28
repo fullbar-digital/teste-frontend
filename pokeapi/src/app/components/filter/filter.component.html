@@ -1,0 +1,11 @@
+<section class="filter">
+    <input type="text" placeholder="Inicial" #initial>
+    <input type="text" placeholder="Final" #final>
+    <input type="checkbox" #pagination>
+    <select #pokemonPerPage>
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+    </select>
+    <button (click)="filter(initial.value, final.value, pokemonPerPage.value, pagination.checked)">Filtrar</button>
+</section>
