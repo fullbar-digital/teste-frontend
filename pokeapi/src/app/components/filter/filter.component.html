@@ -1,8 +1,11 @@
 <section class="filter">
-    <input type="text" placeholder="Inicial" #initial>
-    <input type="text" placeholder="Final" #final>
-    <input type="checkbox" #pagination>
-    <select #pokemonPerPage>
+    <input class="pokedex-value" type="number" placeholder="Inicial" #initial>
+    <input class="pokedex-value" type="number" placeholder="Final" #final>
+    <div>
+        <input class="active-pokedex-pagination" type="checkbox" #pagination>
+        <span class="active-pagination-text">Ativar paginação</span>
+    </div>
+    <select class="pokedex-pagination" #pokemonPerPage>
         <option>10</option>
         <option>20</option>
         <option>30</option>

@@ -10,7 +10,7 @@ import "rxjs/add/operator/switchMap";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  pokemonPerPage = 10;
+  pokemonPerPage;
   config: any
   public pokemons: Array<any> = [];
 
@@ -58,14 +58,14 @@ export class HomeComponent implements OnInit {
   }
 
   updateCurrentPage(){
-    this.route.queryParamMap
-    .map(params => params.get("page"))
-    .subscribe(page => (this.config.currentPage = page));
-
     this.config = {
       currentPage: 1,
       itemsPerPage: this.pokemonPerPage
     };
+    
+    this.route.queryParamMap
+    .map(params => params.get("page"))
+    .subscribe(page => (this.config.currentPage = page));
   }
 
   pageChange(newPage: number) {

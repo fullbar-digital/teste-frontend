@@ -14,37 +14,49 @@
             </div>
         </div>
     </div>
-    <h1>General Data</h1>
-    <div class="general-info base-experience">Base Experience: {{pokemon.base_experience}}</div>
-    <div class="general-info pokemon-height">Height: {{pokemon.height}}</div>
-    <div class="general-info pokemon-weight">Weight: {{pokemon.weight}}</div>
-    <div class="general-info pokemon-ability">
-        <div>Abilities:</div>
-        <div class="abilities">
-            <div *ngFor="let ability of pokemon.abilities">
-                {{ability.ability.name | titlecase}}
-                {{ability.ability.is_hidden}}
-                <span *ngIf="ability.is_hidden">(hidden)</span>
+    <section class="grid-general-data-base-stats">
+        <section class="general-data">
+            <h1>General Data</h1>
+            <div class="general-info base-experience">Base Experience: {{pokemon?.base_experience}}</div>
+            <div class="general-info pokemon-height">Height: {{pokemon?.height}}</div>
+            <div class="general-info pokemon-weight">Weight: {{pokemon?.weight}}</div>
+            <div class="general-info pokemon-types">
+                <span>Types:</span>
+                <div class="type-name">
+                    <div *ngFor="let type of pokemon?.types">{{type?.type?.name | titlecase}}</div>
+                </div>
             </div>
-        </div>
-    </div> 
-    <h1>Base Stats</h1>
-    <div class="pokemon-stats">
-        <table class="table-stats">
-            <tbody>
-                <tr *ngFor="let stat of pokemon.stats">
-                    <th>{{ stat.stat.name | titlecase}}</th>
-                    <td>{{stat.base_stat}}</td>
-                    <td>
-                        <div class="stat-bar" [style.width.px]="stat.base_stat/2"></div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <h1>Game Indices</h1>
+            <div class="general-info pokemon-ability">
+                <div>Abilities:</div>
+                <div class="abilities">
+                    <div *ngFor="let ability of pokemon?.abilities">
+                        {{ability?.ability.name | titlecase}}
+                        {{ability?.ability.is_hidden}}
+                        <span *ngIf="ability.is_hidden">(hidden)</span>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <section class="base-stats">
+            <h1>Base Stats</h1>
+            <div class="pokemon-stats">
+                <table class="table-stats">
+                    <tbody>
+                        <tr *ngFor="let stat of pokemon?.stats">
+                            <th>{{ stat?.stat?.name | titlecase}}</th>
+                            <td>{{stat?.base_stat}}</td>
+                            <td>
+                                <div class="stat-bar" [style.width.px]="stat?.base_stat/1.3"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+<h1>Game Indices</h1>
     <div class="game-indices">
-        <span class="game-indices-name" *ngFor="let indices of pokemon.game_indices">{{indices.version.name | titlecase}}</span>
+        <span class="game-indices-name" *ngFor="let indices of pokemon?.game_indices">{{indices?.version.name | titlecase}}</span>
     </div>
     <h1>Moves learnt</h1>
     <table class="table-moves">
@@ -55,9 +67,9 @@
         </tr>
         <tr *ngFor="let move of moves">
                 <td *ngIf="move.version_group_details[0].level_learned_at == 0" class="th-level">-//-</td>
-            <td *ngIf="move.version_group_details[0].level_learned_at != 0" class="th-level">{{move.version_group_details[0].level_learned_at}}</td>
-            <td class="th-method">{{move.version_group_details[0].move_learn_method.name | uppercase}}</td>
-            <td class="th-name">{{move.move.name | uppercase}}</td>
+            <td *ngIf="move.version_group_details[0].level_learned_at != 0" class="th-level">{{move?.version_group_details[0]?.level_learned_at}}</td>
+            <td class="th-method">{{move?.version_group_details[0]?.move_learn_method?.name | uppercase}}</td>
+            <td class="th-name">{{move?.move?.name | uppercase}}</td>
         </tr>
     </table>
 </main>

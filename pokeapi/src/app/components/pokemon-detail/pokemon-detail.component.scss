@@ -1,3 +1,15 @@
+.pokedex-data {
+    color: white;
+}
+
+.grid-general-data-base-stats {
+    @media (min-width:1200px){
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+}
+
 .name {
     text-align: center;
 }
@@ -48,11 +60,23 @@
         padding: 10px;
     }
 }
+
+.pokemon-types {
+    display: flex;
+    align-items: center;
+}
+
+.type-name {
+    display: flex;
+    flex-direction: column;
+}
+
 .game-indices {
     width: 100%;
     max-width:320px;
     display:grid;
     grid-template: auto/1fr 1fr;
+    margin: 0 auto;
 }
 .game-indices-name {
     display: block;
