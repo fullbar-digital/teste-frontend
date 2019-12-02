@@ -1,5 +1,5 @@
 <main class="pokedex-data">
-    <h1 class="name">#{{pokemon?.id}} - {{pokemon?.name | titlecase}}</h1>
+    <h1 class="name pokemon-detail-title">#{{pokemon?.id}} - {{pokemon?.name | titlecase}}</h1>
     <div class="pokemon-sprites">
         <div class="sprite">
             <img [src]="pokemon?.sprites?.back_default">
@@ -16,7 +16,7 @@
     </div>
     <section class="grid-general-data-base-stats">
         <section class="general-data">
-            <h1>General Data</h1>
+            <h1 class="pokemon-detail-title">General Data</h1>
             <div class="general-info base-experience">Base Experience: {{pokemon?.base_experience}}</div>
             <div class="general-info pokemon-height">Height: {{pokemon?.height}}</div>
             <div class="general-info pokemon-weight">Weight: {{pokemon?.weight}}</div>
@@ -38,7 +38,7 @@
             </div> 
         </section>
         <section class="base-stats">
-            <h1>Base Stats</h1>
+            <h1 class="pokemon-detail-title">Base Stats</h1>
             <div class="pokemon-stats">
                 <table class="table-stats">
                     <tbody>
@@ -54,11 +54,11 @@
             </div>
         </section>
     </section>
-<h1>Game Indices</h1>
+    <h1 class="pokemon-detail-title">Game Indices</h1>
     <div class="game-indices">
         <span class="game-indices-name" *ngFor="let indices of pokemon?.game_indices">{{indices?.version.name | titlecase}}</span>
     </div>
-    <h1>Moves learnt</h1>
+    <h1 class="pokemon-detail-title">Moves learnt</h1>
     <table class="table-moves">
         <tr>
             <th class="th-level">Level</th>

@@ -2,8 +2,8 @@
     <input class="pokedex-value" type="number" placeholder="Inicial" #initial>
     <input class="pokedex-value" type="number" placeholder="Final" #final>
     <div>
-        <input class="active-pokedex-pagination" type="checkbox" #pagination>
-        <span class="active-pagination-text">Ativar paginação</span>
+        <input id="cb-pagination" class="active-pokedex-pagination" type="checkbox" #pagination>
+        <label for="cb-pagination" class="active-pagination-text">Ativar paginação</label>
     </div>
     <select class="pokedex-pagination" #pokemonPerPage>
         <option>10</option>

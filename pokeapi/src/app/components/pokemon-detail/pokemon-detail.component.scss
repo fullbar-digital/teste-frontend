@@ -1,159 +1,176 @@
+@import '../../../variables.scss';
+
 .pokedex-data {
     color: white;
-}
-
-.grid-general-data-base-stats {
-    @media (min-width:1200px){
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-    }
-}
-
-.name {
-    text-align: center;
-}
-.pokemon-sprites {
-    display: flex;
-    justify-content: space-around;
-}
-
-.sprite {
-    border: 1px solid black;
-    border-radius: 15px;
-}
-
-.sprite-type {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-.table-stats {
-    border-spacing: 10px;
-    border-collapse: separate;
-    margin: 0 auto;
-    tr {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
-    th {
-        text-align: right;
-    }
-}
-.table-game-indices {
-    text-align: center;
-    margin: 0 auto;
-    color: rgb(0, 0, 0);
-    border: 1px solid black;
-    border-collapse: collapse;
-    td{
-        border: 1px solid black;  
-        padding: 10px;
-        background-color: pink;
-    }
-    th {
-        border: 1px solid black;
-        text-align: center;
-        padding: 10px;
-    }
-}
-
-.pokemon-types {
-    display: flex;
-    align-items: center;
-}
-
-.type-name {
-    display: flex;
-    flex-direction: column;
-}
-
-.game-indices {
-    width: 100%;
-    max-width:320px;
-    display:grid;
-    grid-template: auto/1fr 1fr;
-    margin: 0 auto;
-}
-.game-indices-name {
-    display: block;
-    margin:5px auto;
-    padding: 10px;
-    background-color: rgb(117, 117, 117);
-    border-radius: 15px;
-    width: 80px;
-}
-.table-moves {
-    text-align: center;
-    margin: 0 auto;
-    color: rgb(0, 0, 0);
-    border: 1px solid black;
-    border-collapse: collapse;
-    td{
-        border: 1px solid black;  
-        padding: 10px;
-    }
-    th {
-        border: 1px solid black;
-        text-align: center;
-        padding: 10px;
-    }
-}
-
-.th-level {
-    background-color: rgb(167, 128, 240);
-}
-.th-method {
-    background-color: rgb(240, 214, 128);
-}
-.th-name {
-    background-color: rgb(240, 128, 128);
-}
-
-.stat-bar {
-    background-color: rgb(127, 201, 127);
-    height: 15px;
-    padding: 5px;
-}
-
-.stat {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.pokemon-stats {
-    color: white;
-}
-
-.abilities {
-    margin:0 10px;
-}
-
-.moves {
-    color: white;
-}
-
-.pokemon-ability {
-    display: flex;
-    align-items: center;
-}
-
-.grid-general-info {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-}
-
-.general-info {
-    max-width: 175px;
-    margin:10px auto;
-    color: white;
     
-    @media(min-width: 550px){
-        max-width:220px;
+    .pokemon-detail-title {
+        font-size: 25px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .grid-general-data-base-stats {
+        @media (min-width:$max-width){
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+    }
+
+    .general-data {
+        margin: 0 30px;
+    }
+
+    .name {
+        text-align: center;
+    }
+    .pokemon-sprites {
+        display: flex;
+        justify-content: space-between;
+        margin:0 auto;
+        max-width: $medium;
+    }
+
+    .sprite {
+        border: 1px solid black;
+        border-radius: 15px;
+    }
+
+    .sprite-type {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .table-stats {
+        border-spacing: 10px;
+        border-collapse: separate;
+        margin: 0 auto;
+
+        tr {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        th {
+            text-align: right;
+        }
+    }
+
+    .table-game-indices {
+        text-align: center;
+        margin: 0 auto;
+        color: rgb(0, 0, 0);
+        border: 1px solid black;
+        border-collapse: collapse;
+        td{
+            border: 1px solid black;  
+            padding: 10px;
+            background-color: pink;
+        }
+        th {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+
+    .pokemon-types {
+        display: flex;
+        align-items: center;
+    }
+
+    .type-name {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .game-indices {
+        width: 100%;
+        max-width:320px;
+        display:grid;
+        grid-template: auto/1fr 1fr;
+        margin: 0 auto;
+    }
+    .game-indices-name {
+        display: block;
+        margin:5px auto;
+        padding: 10px;
+        background-color: rgb(117, 117, 117);
+        border-radius: 15px;
+        width: 80px;
+    }
+    .table-moves {
+        text-align: center;
+        margin: 0 auto;
+        color: rgb(255, 255, 255);
+        border: 1px solid black;
+        border-collapse: collapse;
+        td{
+            border: 1px solid black;  
+            padding: 10px;
+        }
+        th {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+
+    .th-level {
+        background-color: rgb(117, 117, 117);;
+    }
+    .th-method {
+        background-color: rgb(117, 117, 117);;
+    }
+    .th-name {
+        background-color: rgb(117, 117, 117);;
+    }
+
+    .stat-bar {
+        background-color: rgb(127, 201, 127);
+        height: 15px;
+        padding: 5px;
+    }
+
+    .stat {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .pokemon-stats {
+        color: white;
+    }
+
+    .abilities {
+        margin:0 10px;
+    }
+
+    .moves {
+        color: white;
+    }
+
+    .pokemon-ability {
+        display: flex;
+        align-items: center;
+    }
+
+    .grid-general-info {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .general-info {
+        max-width: 175px;
+        margin:10px auto;
+        color: white;
+        
+        @media(min-width: 550px){
+            max-width:220px;
+        }
     }
 }
