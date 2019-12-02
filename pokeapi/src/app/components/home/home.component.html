@@ -1,0 +1,20 @@
+<app-filter (interval)="getPokemonFilter($event)"></app-filter>
+<main class="pokemons">
+    <section class="pokemon" *ngFor="let pokemon of pokemons | paginate: config">
+        <div class="pokemon-sprite" routerLink="/pokedex/{{pokemon.id}}">
+            <img [defaultImage]="'https://www.cnoa.org/app/assets/images/cnoa_preloader.gif'" [lazyLoad]="pokemon.sprites.front_default" [offset]="'100'">
+        </div>
+        <div class="grid-general-info">
+            <div class="grid-number-name">
+                <span class="pokemon-number-name" routerLink="/pokedex/{{pokemon.id}}">#{{pokemon?.id}} - {{pokemon?.name | titlecase}}</span>
+            </div>
+            <div class="general-info pokemon-type">
+                <span class="type-text">Type:</span>
+                <span [class]=type.type.name *ngFor="let type of pokemon?.types">
+                    {{type?.type?.name | titlecase}}
+                </span>
+            </div>
+        </div>
+    </section>
+</main>
+<pagination-controls class="my-pagination" (pageChange)="pageChange($event)"></pagination-controls>

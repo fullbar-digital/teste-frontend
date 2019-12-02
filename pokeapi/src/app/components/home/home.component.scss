@@ -1,0 +1,50 @@
+.pokemons {
+    display: grid;
+    grid-template: auto / 1fr;
+    gap: 30px;
+
+    @media (min-width: 400px){
+        grid-template: auto / 1fr 1fr;    
+    }
+
+    @media (min-width: 800px){
+        grid-template: auto / 1fr 1fr 1fr;    
+    }
+}
+
+.ngx-pagination {
+    text-align: center;
+    margin: 10px;
+}
+
+.pokemon-number-name {
+    color: white;
+}
+
+.type-text {
+    color: white;
+}
+
+.pokemon-number-name:hover {
+    color: orange;
+    cursor: pointer
+}
+
+.pokemon {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 350px;
+
+}
+
+.pokemon-sprite {
+    cursor: pointer;
+}
+
+.abilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
