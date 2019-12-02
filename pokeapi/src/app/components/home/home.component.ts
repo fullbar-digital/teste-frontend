@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPokemon(1, 150);
+    this.getPokemon(1, 649);
   }
 
   getPokemon(initial, final) {

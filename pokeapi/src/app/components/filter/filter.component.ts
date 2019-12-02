@@ -17,14 +17,33 @@ export class FilterComponent implements OnInit {
   ngOnInit() {}
 
   filter(initial, final, pokemonPerPage, pagination){
+    if(this.verifyEmptyValue(initial, final)){
+      this.showErrorInitialOrFinalValueIsEmpty();
+      return
+    }
     if(this.verifyInitialIsBiggerFinalValue(initial, final))
       this.showErrorInitialIsBiggerFinalValue()
     else
       this.interval.emit([initial, final, pokemonPerPage, pagination]);
   }
 
+  verifyEmptyValue(initial, final){
+    if(initial == '' || final == ''){
+      return true
+    }
+  }
+
   verifyInitialIsBiggerFinalValue(initial, final) {
     return Number(initial) > Number(final) ? true : false;
+  }
+
+  showErrorInitialOrFinalValueIsEmpty(){
+    Swal.fire({
+      title: 'Opa..',
+      text: 'O valor inicial e/ou final está vazio',
+      icon: 'error',
+      confirmButtonText: 'Tudo bem'
+    }) 
   }
 
   showErrorInitialIsBiggerFinalValue() {
