@@ -9,7 +9,7 @@ export default class PokemonList extends Component {
         pokemon: null
     };
 
-   async componentDidMount() {
+    async componentDidMount() {
         const res = await axios.get(this.state.url);
         this.setState({ pokemon: res.data['results'] });
     }
@@ -18,22 +18,22 @@ export default class PokemonList extends Component {
         return (
             <React.Fragment>
                 {this.state.pokemon ? (
-                    <div className="row">            
-                {this.state.pokemon.map(pokemon => (
-                    <PokemonCard 
-                    
-                    key={pokemon.name}
-                    name={pokemon.name}
-                    url={pokemon.url}
-                    
-                    />
-                ))}
-            </div>
+                    <div>
+                        {this.state.pokemon.map(pokemon => (
+                            <PokemonCard
+
+                                key={pokemon.name}
+                                name={pokemon.name}
+                                url={pokemon.url}
+
+                            />
+                        ))}
+                    </div>
                 ) : (
-                    <h1>Loading Pokemon</h1>
+                        <h1>Loading Pokemon</h1>
                     )}
-                    </React.Fragment>
+            </React.Fragment>
         );
-          
+
     }
 }
