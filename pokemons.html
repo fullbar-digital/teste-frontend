@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="img/favicon.ico"/>
+  <link rel="stylesheet" href="pokemons.css">
+  <title>Informações Pokémon</title>
+</head>
+<body>
+  <main class="container">
+    <h1>LISTAGEM</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokemon Logo">
+      <div>
+        <p>Início <input type="inicio" class="inicio-input" placeholder="Número do pokémon inicial que será carregado" size=50></p>
+        <p>Fim <input type="fim" class="fim-input" placeholder="Número do pokémon final que será carregado" size=50></p>
+        <p>Quantidade de exibição <select name="qtde" id="qtde">
+          <option value="trp">10</option>
+          <option value="trp">20</option>
+          <option value="trp">30</option>
+        </select></p>
+        <p>Modo de exibição <select name="modo" id="modo">
+          <option value="trp">Scroll Infinito</option>
+          <option value="trp">Paginação</option>
+        </select></p>
+        <!-- <p><input type="button" value="Filtrar" onclick="createCard()"></p> -->
+        <button class="filtro-button" onclick="startApp()">Filtrar</button>
+      </div>
+    <section class="pokemon">
+    </section>
+    <span class="error">Not Found!</span>
+  </main>
+  <script src="pokemons.js"></script>
+</body>
+</html>
