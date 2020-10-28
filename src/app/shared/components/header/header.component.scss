@@ -1,0 +1,5 @@
+@import '../../../../assets/scss/variables';
+
+.logo { padding: 5px 10px; background-color: white; color: $primary; border-radius: 5px; text-decoration: none; transition: 0.2s;
+    &:hover { transform: scale(1.05); transition: 0.3s; }
+}
