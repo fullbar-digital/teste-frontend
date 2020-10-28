@@ -1,0 +1,36 @@
+/* Paddings and Margins */
+$spaces: (0,1,2,3,4,5,6,7,8,9,10);
+$sides: (top, right, bottom, left);
+
+@each $space in $spaces {
+  .m-#{$space} {
+    margin: #{$space/2}rem;
+  }
+  .p-#{$space} {
+    padding: #{$space/2}rem;
+  }
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space/2}rem !important;
+    }
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space/2}rem !important;
+    }
+  }
+}
+
+// Breakpoint
+@mixin breakpoint($point){
+  @if ($point == lg){
+    @media (min-width: 1200px){ @content }
+  }
+  @else if ($point == md){
+    @media (min-width: 992px) { @content }
+  }
+  @else if ($point == sm){
+    @media (min-width: 768px){ @content }
+  }
+  @else if ($point == xs){
+    @media (min-width: 576px){ @content }
+  }
+}

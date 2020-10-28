@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-title class="pt-2">Pokedex</mat-card-title>
+
+    <nav mat-tab-nav-bar class="pt-5" color="primary" backgroundColor="primary">
+        <a mat-tab-link *ngFor="let link of links" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive" style="opacity: 1;">{{link.displayName}}</a>
+    </nav>
+
+    <router-outlet></router-outlet>
+</mat-card>

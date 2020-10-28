@@ -1,0 +1,12 @@
+@import '../../../../../assets/scss/mixins';
+@import '../../../../../assets/scss/variables';
+
+.pokedex { position: relative; overflow: auto;
+    @include breakpoint(md) { width: 50%; margin: auto; }
+
+    &__table { width: 100%;
+        &-header { background-color:$primary; color: white; text-transform: uppercase; font-size: 0.9rem; border: 1px solid $primary; }
+        &-cell:last-child { text-align: center; }       
+        ::ng-deep .mat-sort-header-arrow { color:  white; }        
+    }
+}
