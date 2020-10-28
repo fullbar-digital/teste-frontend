@@ -17,17 +17,17 @@
     <div class="mat-elevation-z8 pokedex">
         <table mat-table class="pokedex__table" [dataSource]="pokedexTable" matSort>
             <ng-container matColumnDef="pokemonId">
-                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef mat-sort-header># Pokemon ID</th>
+                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef mat-sort-header># ID</th>
                 <td class="pokedex__table-cell" mat-cell *matCellDef="let element">{{element.id}}</td>
             </ng-container>
 
             <ng-container matColumnDef="name">
-                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef mat-sort-header>Pokemon Name</th>
+                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                 <td class="pokedex__table-cell" mat-cell *matCellDef="let element">{{element.name | titlecase }}</td>
             </ng-container>
 
             <ng-container matColumnDef="actions">
-                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef>Pokemon Details</th>
+                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef>Details</th>
                 <td class="pokedex__table-cell" mat-cell *matCellDef="let element">
                     <a [routerLink]="element.id">
                         <mat-icon mat-raised-button color="primary" matTooltip="See the details of this pokemon"

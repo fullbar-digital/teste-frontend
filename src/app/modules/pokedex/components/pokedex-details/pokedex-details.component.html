@@ -1,46 +1,52 @@
-<mat-card>
-    <mat-card-header>
-        <!-- <div mat-card-avatar></div> -->
-        <mat-card-title>#{{pokemon?.id}} - {{pokemon?.name}}</mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
+<mat-card fxFlex fxLayout="column" fxLayoutAlign="center center" class="isLoading" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+</mat-card>
+
+<mat-card fxFlex fxLayout="column" *ngIf="!isLoading">
+    <mat-card-header fxFlex fxLayout="row" fxLayoutAlign="center" fxLayoutAlign.gt-md="flex-start center">
+        <div mat-card-avatar>
+            <img mat-card-image src="{{pokemon?.imgPathMini}}" alt="{{pokemon?.name}}" appLazyLoadingImg>
+        </div>
+        <mat-card-title class="mt-1">#{{pokemon?.id}} - {{(pokemon?.name) | titlecase}}</mat-card-title>
     </mat-card-header>
 
-    <img mat-card-image src="imgPathMini" style="width:50px" alt="name Image">
-
-    <mat-card-content>
-        <h6>#{{pokemon?.id}} - {{pokemon?.name}} Info</h6>
-
-        <div>
-            <p>Type(s)</p>
-            <mat-chip-list *ngFor="let type of pokemon?.types">                
-                <mat-chip color="{{type}}" selected>{{type}}</mat-chip>                
+    <mat-card-content class="mt-2" fxFlex fxLayout="column">
+        <div fxFlex fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="flex-start center">
+            <p class="mr-2 mt-2">{{pokemon?.name | titlecase}} is a pokemon of type(s):</p>
+            <mat-chip-list>
+                <mat-chip *ngFor="let type of pokemon?.types" class="{{type}} mr-2 mt-2" selected>
+                    {{type | titlecase}}
+                </mat-chip>
             </mat-chip-list>
         </div>
 
-        <p>{{pokemon$ | async | json}}</p>
+        <div class="mt-2" fxFlex fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="flex-start center">
+            <p class="mr-2 mt-2">{{pokemon?.name | titlecase}} Abilities:</p>
+            <mat-chip-list>
+                <mat-chip *ngFor="let ability of pokemon?.abilities" class="mr-2 mt-2">
+                    {{ability | titlecase}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+
+        <div class="mt-3" fxFlex fxLayout="column">
+            <p>{{pokemon?.name | titlecase}} Stats:</p>
+            <div fxFlex fxLayout="column">
+                <div fxFlex *ngFor="let stat of pokemon?.stats" class="mb-2">
+                    <span>{{ stat.name | uppercase }}: <mat-chip>{{stat.value}}</mat-chip></span>
+                    <mat-progress-bar class="mt-1" mode="determinate" value="{{stat.value * 100 / 256}}"
+                        matTooltip="Effort Value from 0 until 256" matTooltipPosition="below"></mat-progress-bar>
+                </div>
+            </div>
+        </div>
+
+        <div fxFlex fxLayoutAlign="center center" class="mt-3">
+            <img src="{{pokemon?.imgPathLarge}}" alt="{{pokemon?.name}}" appLazyLoadingImg />
+        </div>
     </mat-card-content>
 
-    <div>
-        <button mat-button color="primary">Previus</button>
-        <button mat-button color="primary">Next</button>
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-between" class="mt-3">
+        <button mat-raised-button color="primary" [disabled]="minPokeId" (click)="toPrevius()">Previus Pokemon</button>
+        <button mat-raised-button color="primary" [disabled]="maxPokeId" (click)="toNext()">Next Pokemon</button>
     </div>
 </mat-card>
-<!-- id: number;
-name: string;
-weight?: number;
-imgPathLg?: string;
-imgPathMini?: string;
-abilities?: [
-    { ability: string }
-];
-types?: [
-    { type: string }
-];
-stats?: {
-    hp: number,
-    attack: number,
-    defense: number,
-    specialAttack: number,
-    specialdefense: number,
-    speed: number
-}; -->

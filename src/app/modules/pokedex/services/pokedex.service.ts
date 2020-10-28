@@ -26,25 +26,24 @@ export class PokedexService {
       }));
   }
 
-  getPokemon(pokemonId: number): Observable<Pokemon> {
+  getPokemon(pokemonId: number): Observable<any> {
     return this._httpService.get<any>(`${this.pokemonEndPoint}${pokemonId}`)
       .pipe(map(doc => {
         return {
           id: doc.id,
           name: doc.name,
           types: doc.types.map(e => e.type.name),
-          weight: doc.weight,
           abilities: doc.abilities.map(e => e.ability.name),
           imgPathMini: doc.sprites.front_default,
-          imgPathLg: doc.sprites.other.dream_world.front_default,
-          stats: {
-            hp: doc.stats[0].base_stat,
-            attack: doc.stats[1].base_stat,
-            defense: doc.stats[2].base_stat,
-            specialAttack: doc.stats[3].base_stat,
-            specialdefense: doc.stats[4].base_stat,
-            speed: doc.stats[5].base_stat
-          }
+          imgPathLarge: doc.sprites.other.dream_world.front_default,
+          stats: [
+            { name: 'hp', value: doc.stats[0].base_stat },
+            { name: 'attack', value: doc.stats[1].base_stat },
+            { name: 'defense', value: doc.stats[2].base_stat },
+            { name: 'special-attack', value: doc.stats[3].base_stat },
+            { name: 'special-defense', value: doc.stats[4].base_stat },
+            { name: 'speed', value: doc.stats[5].base_stat },
+          ]
         };
       }));
   }

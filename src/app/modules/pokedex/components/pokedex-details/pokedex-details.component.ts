@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { PokedexService } from '../../services/pokedex.service';
 import { Pokemon } from '../../entities/pokemon';
@@ -10,27 +10,57 @@ import { Pokemon } from '../../entities/pokemon';
   templateUrl: './pokedex-details.component.html',
   styleUrls: ['./pokedex-details.component.scss']
 })
-export class PokedexDetailsComponent implements OnInit {
+export class PokedexDetailsComponent implements OnInit, OnDestroy {
   pokemonId: number;
-  pokemon$: Observable<Pokemon>;
   pokemon: Pokemon;
+  isLoading = true;
+  minPokeId = false;
+  maxPokeId = false;
+  private _sub: Subscription;
 
   constructor(
     private _pokedexSercive: PokedexService,
     private _route: ActivatedRoute,
     private _router: Router,
-  ) { }
+  ) {
+    this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+
+    this._router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this._router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.pokemonId = +this._route.snapshot.params.pokemonId;
-    /* check if the id is from a Kanto pokemon */
+
     if (this.pokemonId < 0 || this.pokemonId > 151) {
-      // this._router.navigate(['/pokedex']);
+      this._router.navigate(['/pokedex']);
     }
 
-    this.pokemon$ = this._pokedexSercive.getPokemon(this.pokemonId);
-    this.pokemon$.subscribe(pokemon => {
+    this.isLoading = true;
+
+    this._sub = this._pokedexSercive.getPokemon(this.pokemonId)
+      .subscribe(pokemon => {
         this.pokemon = pokemon;
+        this.isLoading = false;
       });
+
+    this.minPokeId = this.pokemonId < 2 ? true : false;
+    this.maxPokeId = this.pokemonId > 150 ? true : false;
+  }
+
+  toPrevius(): void {
+    this._router.navigate([`/pokedex/${this.pokemonId - 1}`]);
+  }
+
+  toNext(): void {
+    this._router.navigate([`/pokedex/${this.pokemonId + 1}`]);
+  }
+
+  ngOnDestroy(): void {
+    this._sub.unsubscribe();
   }
 }

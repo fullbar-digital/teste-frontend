@@ -1,8 +1,7 @@
 export interface Pokemon {
     id: number;
     name: string;
-    weight?: number;
-    imgPathLg?: string;
+    imgPathLarge?: string;
     imgPathMini?: string;
     abilities?: [
         { ability: string }
@@ -10,13 +9,8 @@ export interface Pokemon {
     types?: [
         { type: string }
     ];
-    stats?: {
-        hp: number,
-        attack: number,
-        defense: number,
-        specialAttack: number,
-        specialdefense: number,
-        speed: number
-    };
-
+    stats?: [
+        { name: string; value: number }
+    ];
 }
+
