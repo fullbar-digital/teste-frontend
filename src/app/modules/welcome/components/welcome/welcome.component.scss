@@ -12,7 +12,7 @@ main { background-color: $lightBg;
 
             p { display: none; font-size: 1.5rem; line-height: 1.5rem; font-weight: bold; }
 
-            button { position: absolute; top: calc(50% - 25px); left: calc(50% - 35px); padding: 0 5px; height: 60px; font-weight: bold; border-radius: 50%;  border: 5px solid black; transition: .5; z-index: 9;
+            button { position: absolute; top: calc(50% - 29px); left: calc(50% - 37px); padding: 0 5px; height: 65px; font-weight: bold; border-radius: 50%;  border: 5px solid black; transition: .5; z-index: 9;
                 &:hover { opacity: 0.9; transform: scale(1.1); transition: .5;}
             }
         }
@@ -26,7 +26,7 @@ main { background-color: $lightBg;
         &__info { 
             &-title { font-size: 1rem; }
 
-            &-step { height: 20px; width: 20px; padding: 3px; margin-right: 10px; border-radius: 50%; text-align: center; background-color: $primary; color: white; }
+            &-step { min-height: 20px; min-width: 20px; padding: 3px; margin-right: 10px; border-radius: 50%; text-align: center; background-color: $primary; color: white; }
         }
         
         &__content { position: relative; 
