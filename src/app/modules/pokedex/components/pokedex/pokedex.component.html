@@ -1,0 +1,8 @@
+<nav mat-tab-nav-bar class="mat-elevation-z8" color="primary" backgroundColor="primary">
+    <a mat-tab-link *ngFor="let link of links" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive" [disabled]="!link.available" style="opacity: 1;">{{link.displayName}}</a>
+</nav>
+
+<section>
+    <router-outlet></router-outlet>
+</section>

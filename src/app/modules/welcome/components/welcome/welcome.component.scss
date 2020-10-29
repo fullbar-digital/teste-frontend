@@ -1,0 +1,36 @@
+@import '../../../../../assets/scss/mixins';
+@import '../../../../../assets/scss/variables';
+
+main { background-color: $lightBg;
+    .kv { padding: 2rem;         
+        &__cta { position: relative; width: 200px; height: 200px; background:white; border: 5px solid black;  border-radius: 50%; overflow: hidden; box-shadow: inset 5px 0px 0 5px #ccc;
+            &::before, &::after { content: ''; position: absolute; }
+
+            &::before { width: 100%; height: 50%; background: red; }
+            
+            &::after { top: 50%; width: 100%; height: 8px; background:black; }
+
+            p { display: none; font-size: 1.5rem; line-height: 1.5rem; font-weight: bold; }
+
+            button { position: absolute; top: calc(50% - 29px); left: calc(50% - 37px); padding: 0 5px; height: 65px; font-weight: bold; border-radius: 50%;  border: 5px solid black; transition: .5; z-index: 9;
+                &:hover { opacity: 0.9; transform: scale(1.1); transition: .5;}
+            }
+        }
+    }
+
+    .tutorial { padding: 1.5rem;
+        @include breakpoint(md) { padding: 1.5rem 10rem; }
+
+        h3 { font-size: 1.5rem; font-weight: bold; }
+
+        &__info { 
+            &-title { font-size: 1rem; }
+
+            &-step { min-height: 20px; min-width: 20px; padding: 3px; margin-right: 10px; border-radius: 50%; text-align: center; background-color: $primary; color: white; }
+        }
+        
+        &__content { position: relative; 
+            &-img { width: 100%; border: 1px solid $primary; border-radius: 3px; }
+        }
+    }
+}

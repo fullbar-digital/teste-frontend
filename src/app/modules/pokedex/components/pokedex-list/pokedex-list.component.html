@@ -1,0 +1,48 @@
+<mat-card fxFlex fxLayout="column">
+    <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+        <mat-card-title-group fxFlex>
+            <mat-card-title fxLayoutAlign="center">Kanto Pokedex</mat-card-title>
+            <mat-card-subtitle fxLayoutAlign="center">Kanto region's pokedex (Generation I)</mat-card-subtitle>
+        </mat-card-title-group>
+
+        <div fxFlex>
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event.target.value)" #filter placeholder="Filter by Name or ID">
+                <mat-icon matSuffix color="primary" matTooltip="Filter by Name or ID">search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="mat-elevation-z8 pokedex">
+        <table mat-table class="pokedex__table" [dataSource]="pokedexTable" matSort>
+            <ng-container matColumnDef="pokemonId">
+                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef mat-sort-header># ID</th>
+                <td class="pokedex__table-cell" mat-cell *matCellDef="let element">{{element.id}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td class="pokedex__table-cell" mat-cell *matCellDef="let element">{{element.name | titlecase }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th class="pokedex__table-header" mat-header-cell *matHeaderCellDef>Details</th>
+                <td class="pokedex__table-cell" mat-cell *matCellDef="let element">
+                    <a [routerLink]="element.id">
+                        <mat-icon mat-raised-button color="primary" matTooltip="See the details of this pokemon"
+                            matTooltipPosition="right">zoom_in</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching this filter "{{filter.value}}"</td>
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[10, 20, 30]"></mat-paginator>
+    </div>
+</mat-card>

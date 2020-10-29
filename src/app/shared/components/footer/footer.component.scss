@@ -1,0 +1,5 @@
+@import '../../../../assets/scss/mixins';
+
+mat-toolbar { padding: 20px; height: auto;
+    @include breakpoint(md) { padding: 20px 40px; }
+}
