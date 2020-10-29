@@ -1,22 +1,23 @@
 @import '../../../../../assets/scss/variables';
 
 .isLoading { padding: 5rem; }
+.large-img { max-width: 300px; }
 
 //Color of the each type
-.bug {background-color: $bug!important;}
-.dragon {background-color: $dragon!important;}
-.electric {background-color: $electric!important;}
-.fairy {background-color: $fairy!important;}
-.fighting {background-color: $fighting!important;}
-.fire {background-color: $fire!important;}
-.flying {background-color: $flying!important;}
-.ghost {background-color: $ghost!important;}
-.grass {background-color: $grass!important;}
-.ground {background-color: $ground!important;}
-.ice {background-color: $ice!important;}
-.normal {background-color: $normal!important;}
-.poison {background-color: $poison!important;}
-.psychic {background-color: $psychic!important;}
-.rock {background-color: $rock!important;}
-.steel {background-color: $steel!important;}
-.water {background-color: $water!important;}
+.bug { background-color: $bug!important; }
+.dragon { background-color: $dragon!important; }
+.electric { background-color: $electric!important; }
+.fairy { background-color: $fairy!important; }
+.fighting { background-color: $fighting!important; }
+.fire { background-color: $fire!important; }
+.flying { background-color: $flying!important; }
+.ghost { background-color: $ghost!important; }
+.grass { background-color: $grass!important; }
+.ground { background-color: $ground!important; }
+.ice { background-color: $ice!important; }
+.normal { background-color: $normal!important; }
+.poison { background-color: $poison!important; }
+.psychic { background-color: $psychic!important; }
+.rock { background-color: $rock!important; }
+.steel { background-color: $steel!important; }
+.water { background-color: $water!important; }

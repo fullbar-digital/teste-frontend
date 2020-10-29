@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexComponent implements OnInit {
   links = [
-    { displayName: `Kanto region's Pokédex (Generation III)`, path: '' }
+    { displayName: `Kanto region's Pokedex`, path: '/pokedex', available: true },
+    { displayName: `Johto region's Pokedex working in progress...`, path: '', available: false }
   ];
 
   activeLink = this.links[0];

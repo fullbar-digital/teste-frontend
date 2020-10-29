@@ -1,1 +1,35 @@
-<p>welcome works!</p>
+<main fxFlex fxLayout="column">
+    <section class="kv" fxFlex fxLayout="column" fxLayoutAlign="center center">
+        <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+            <div class="kv__cta">                
+                <button mat-raised-button [routerLink]="['/pokedex']" matTooltip="Go to Pokedex">Let's Go!</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tutorial" fxFlex fxLayout="column">
+        <div fxFlex fxLayout="column">
+            <div fxFlex>
+                <h3 class="mb-4">Quick Start</h3>
+            </div>
+
+            <div fxFlex fxLayout="column" fxLayout.gt-md="row">
+                <div class="tutorial__info" fxFlex fxFlex.gt-md="60%" fxLayout="column">
+                    <h5>How to Find a Pokemon:</h5>
+
+                    <div fxLayout="row" fxLayoutAlign="left center" class="mb-1" *ngFor="let step of steps">
+                        <mat-chip class="mr-2" selected>{{step.index}}</mat-chip>
+                        <span>{{step.text}}</span>
+                    </div> 
+                    
+                    <div class="mt-3 mb-3">
+                        <button mat-raised-button color="primary" [routerLink]="['/pokedex']">Go To Pokedex</button>
+                    </div>
+                </div>
+                <div class="tutorial__img" fxFlex fxFlex.gt-md="40%" fxLayoutAlign="center center">
+                    <img src="assets/images/red-green.jpg" alt="Kanto Pokedex" appLazyLoadingImg />
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

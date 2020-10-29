@@ -1,13 +1,13 @@
-# Pokedex App | Angular 
-
-* [Pokedex-App](https://nar4Ku.github.io/pokedex-app/)
+## [Pokedex App | Angular](https://nar4Ku.github.io/pokedex-app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
-### Getting Started
-`npm i`
+Author Luis Fernando M. Petreca  | [GitHub](https://github.com/nar4ku) 
 
-`ng s -o`
+### Getting Started
+Install with `npm i` 
+
+Run Local with  `ng s -o`
 
 ### Production
-`ng b --prod`
+Build with `ng b --prod`

@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
 import { Pokemon } from '../entities/pokemon';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +37,12 @@ export class PokedexService {
           imgPathMini: doc.sprites.front_default,
           imgPathLarge: doc.sprites.other.dream_world.front_default,
           stats: [
-            { name: 'hp', value: doc.stats[0].base_stat },
-            { name: 'attack', value: doc.stats[1].base_stat },
-            { name: 'defense', value: doc.stats[2].base_stat },
-            { name: 'special-attack', value: doc.stats[3].base_stat },
-            { name: 'special-defense', value: doc.stats[4].base_stat },
-            { name: 'speed', value: doc.stats[5].base_stat },
+            { name: 'HP', value: doc.stats[0].base_stat },
+            { name: 'Attack', value: doc.stats[1].base_stat },
+            { name: 'Defense', value: doc.stats[2].base_stat },
+            { name: 'Special Attack', value: doc.stats[3].base_stat },
+            { name: 'Special Defense', value: doc.stats[4].base_stat },
+            { name: 'Speed', value: doc.stats[5].base_stat },
           ]
         };
       }));

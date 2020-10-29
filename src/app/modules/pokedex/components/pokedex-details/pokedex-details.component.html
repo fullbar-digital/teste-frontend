@@ -41,12 +41,14 @@
         </div>
 
         <div fxFlex fxLayoutAlign="center center" class="mt-3">
-            <img src="{{pokemon?.imgPathLarge}}" alt="{{pokemon?.name}}" appLazyLoadingImg />
+            <img class="large-img" src="{{pokemon?.imgPathLarge}}" alt="{{pokemon?.name}}" appLazyLoadingImg />
         </div>
     </mat-card-content>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="space-between" class="mt-3">
-        <button mat-raised-button color="primary" [disabled]="minPokeId" (click)="toPrevius()">Previus Pokemon</button>
-        <button mat-raised-button color="primary" [disabled]="maxPokeId" (click)="toNext()">Next Pokemon</button>
+        <button mat-raised-button color="primary" [disabled]="lowerThenMinId" (click)="toPrevious()">
+            Previous Pokemon</button>
+        <button mat-raised-button color="primary" [disabled]="higherThenMaxId" (click)="toNext()">
+            Next Pokemon</button>
     </div>
 </mat-card>

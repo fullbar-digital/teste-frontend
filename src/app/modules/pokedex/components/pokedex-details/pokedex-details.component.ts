@@ -14,8 +14,8 @@ export class PokedexDetailsComponent implements OnInit, OnDestroy {
   pokemonId: number;
   pokemon: Pokemon;
   isLoading = true;
-  minPokeId = false;
-  maxPokeId = false;
+  lowerThenMinId = false;
+  higherThenMaxId = false;
   private _sub: Subscription;
 
   constructor(
@@ -34,13 +34,12 @@ export class PokedexDetailsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.pokemonId = +this._route.snapshot.params.pokemonId;
 
-    if (this.pokemonId < 0 || this.pokemonId > 151) {
+    if (isNaN(this.pokemonId) || this.pokemonId < 1 || this.pokemonId > 151) {
       this._router.navigate(['/pokedex']);
     }
-
-    this.isLoading = true;
 
     this._sub = this._pokedexSercive.getPokemon(this.pokemonId)
       .subscribe(pokemon => {
@@ -48,11 +47,11 @@ export class PokedexDetailsComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       });
 
-    this.minPokeId = this.pokemonId < 2 ? true : false;
-    this.maxPokeId = this.pokemonId > 150 ? true : false;
+    this.lowerThenMinId = this.pokemonId < 2 ? true : false;
+    this.higherThenMaxId = this.pokemonId > 150 ? true : false;
   }
 
-  toPrevius(): void {
+  toPrevious(): void {
     this._router.navigate([`/pokedex/${this.pokemonId - 1}`]);
   }
 

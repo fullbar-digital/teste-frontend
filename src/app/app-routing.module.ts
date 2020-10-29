@@ -3,7 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./core/core.module').then(m => m.CoreModule) },
-  // { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
