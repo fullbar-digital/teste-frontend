@@ -1,5 +1,5 @@
 /* Paddings and Margins */
-$spaces: (0,1,2,3,4,5,6,7,8,9,10);
+$spaces: (0,1,2,3,4,5);
 $sides: (top, right, bottom, left);
 
 @each $space in $spaces {
@@ -29,8 +29,5 @@ $sides: (top, right, bottom, left);
   }
   @else if ($point == sm){
     @media (min-width: 768px){ @content }
-  }
-  @else if ($point == xs){
-    @media (min-width: 576px){ @content }
   }
 }

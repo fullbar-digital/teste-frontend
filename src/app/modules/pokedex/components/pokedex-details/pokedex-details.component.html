@@ -12,20 +12,16 @@
 
     <mat-card-content class="mt-2" fxFlex fxLayout="column">
         <div fxFlex fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="flex-start center">
-            <p class="mr-2 mt-2">{{pokemon?.name | titlecase}} is a pokemon of type(s):</p>
+            <p class="mr-2">{{pokemon?.name | titlecase}} is a pokemon of type(s):</p>
             <mat-chip-list>
-                <mat-chip *ngFor="let type of pokemon?.types" class="{{type}} mr-2 mt-2" selected>
-                    {{type | titlecase}}
-                </mat-chip>
+                <mat-chip *ngFor="let type of pokemon?.types" class="{{type}}" selected>{{type | titlecase}}</mat-chip>
             </mat-chip-list>
         </div>
 
         <div class="mt-2" fxFlex fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="flex-start center">
-            <p class="mr-2 mt-2">{{pokemon?.name | titlecase}} Abilities:</p>
+            <p class="mr-2">{{pokemon?.name | titlecase}} Abilities:</p>
             <mat-chip-list>
-                <mat-chip *ngFor="let ability of pokemon?.abilities" class="mr-2 mt-2">
-                    {{ability | titlecase}}
-                </mat-chip>
+                <mat-chip *ngFor="let ability of pokemon?.abilities">{{ability | titlecase}}</mat-chip>
             </mat-chip-list>
         </div>
 
@@ -46,9 +42,8 @@
     </mat-card-content>
 
     <div fxFlex fxLayout="row" fxLayoutAlign="space-between" class="mt-3">
-        <button mat-raised-button color="primary" [disabled]="lowerThenMinId" (click)="toPrevious()">
-            Previous Pokemon</button>
-        <button mat-raised-button color="primary" [disabled]="higherThenMaxId" (click)="toNext()">
-            Next Pokemon</button>
+        <button mat-raised-button color="primary" [disabled]="lowerThenMinId" (click)="toPrevious()">Previous
+            Pokemon</button>
+        <button mat-raised-button color="primary" [disabled]="higherThenMaxId" (click)="toNext()">Next Pokemon</button>
     </div>
 </mat-card>

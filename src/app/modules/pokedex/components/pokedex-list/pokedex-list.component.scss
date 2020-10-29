@@ -1,6 +1,8 @@
 @import '../../../../../assets/scss/mixins';
 @import '../../../../../assets/scss/variables';
 
+mat-icon:hover { cursor: pointer;}
+
 .pokedex { position: relative; overflow: auto;
     @include breakpoint(md) { width: 50%; margin: auto; }
 

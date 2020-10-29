@@ -9,7 +9,7 @@
             <mat-form-field>
                 <mat-label>Filter</mat-label>
                 <input matInput (keyup)="applyFilter($event.target.value)" #filter placeholder="Filter by Name or ID">
-                <mat-icon matSuffix color="primary" matTooltip="Filter by Name or ID" style="cursor: pointer;">search</mat-icon>
+                <mat-icon matSuffix color="primary" matTooltip="Filter by Name or ID">search</mat-icon>
             </mat-form-field>
         </div>
     </div>
@@ -40,7 +40,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
             <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4">Não encontramos nenhum dado com esse filtro "{{filter.value}}"</td>
+                <td class="mat-cell" colspan="4">No data matching this filter "{{filter.value}}"</td>
             </tr>
         </table>
         <mat-paginator [pageSizeOptions]="[10, 20, 30]"></mat-paginator>
