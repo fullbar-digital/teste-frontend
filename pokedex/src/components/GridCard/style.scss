@@ -1,0 +1,41 @@
+.grid-card {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 16px;
+  min-width: 200px;
+  max-width: 200px;
+  height: 300px;
+  background: #c3f8cd;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.card-image {
+  width: 108px;
+  height: 108px;
+  margin-top: 16px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media(min-width: 1200px){
+  .card-container {
+    width: 1200px;
+  }
+}
