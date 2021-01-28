@@ -5,7 +5,7 @@ export const GetPokemonsContext = createContext();
 const GetPokemonsProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
 
-  const getAllPokemonsIds = Array.from({ length: 150 }, (_, i) => i + 1);
+  const getAllPokemonsIds = Array.from({ length: 300 }, (_, i) => i + 1);
 
   const getPokemonUrl = getAllPokemonsIds.map((id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;

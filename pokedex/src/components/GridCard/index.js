@@ -1,65 +1,19 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { FilterAndPaginationContext } from "../../context/FilterAndPaginationContext";
-import { GetPokemonsContext } from "../../context/GetPokemonsContext";
 import Filters from "../Filters";
 import "./style.scss";
 
 const GridCard = () => {
-  const { pokemons } = useContext(GetPokemonsContext);
-  const {
-    pokemonFilteres,
-    setPokemonFiltered,
-    filterPokemon,
-    setFilterPokemon,
-  } = useContext(FilterAndPaginationContext);
-
-  const initialPokemons = () => {
-    const pokemonData = pokemons.filter(
-      (pokemon) =>
-        pokemon.id >= filterPokemon.initialPokemon &&
-        pokemon.id <= filterPokemon.finalPokemon
-    );
-    return pokemonData;
-  };
-
-  useEffect(() => {
-    setFilterPokemon({
-      initialPokemon: 1,
-      finalPokemon: 10,
-      amountOfPokemonPerPage: 10,
-      pagination: "scroll",
-    });
-    setPokemonFiltered(initialPokemons);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop <
-      document.documentElement.offsetHeight
-    ) {
-      return;
-    }
-
-    const pokemonData = pokemons.filter(
-      (pokemon) =>
-        pokemon.id >= filterPokemon.initialPokemon &&
-        pokemon.id <= ++filterPokemon.finalPokemon
-    );
-    setPokemonFiltered(pokemonData);
-  };
+  const {pokemonFiltered} = useContext(FilterAndPaginationContext);
+  const history = useHistory()
 
   return (
     <>
       <Filters />
       <section className="grid-card">
         <div className="card-container">
-          {pokemonFilteres.map((pokemon) => (
+          {pokemonFiltered.map((pokemon) => (
             <div key={pokemon.id} className="card">
               <div className="card-info-pokemon">
                 <img

@@ -3,6 +3,7 @@ import { createContext, useState } from "react";
 export const FilterAndPaginationContext = createContext();
 
 const FilterAndPaginationProvider = ({ children }) => {
+  const [pokemonFiltered, setPokemonFiltered] = useState([]);
   const [filterPokemon, setFilterPokemon] = useState({
     initialPokemon: "",
     finalPokemon: "",
@@ -10,14 +11,16 @@ const FilterAndPaginationProvider = ({ children }) => {
     pagination: "",
   });
 
-  const [pokemonFilteres, setPokemonFiltered] = useState([]);
+  const limit = filterPokemon.amountOfPokemonPerPage;
+  const total = filterPokemon.finalPokemon - filterPokemon.initialPokemon;
+
   return (
     <FilterAndPaginationContext.Provider
       value={{
+        pokemonFiltered,
+        setPokemonFiltered,
         filterPokemon,
         setFilterPokemon,
-        pokemonFilteres,
-        setPokemonFiltered,
       }}
     >
       {children}
