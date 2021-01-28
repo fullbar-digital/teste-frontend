@@ -9,7 +9,7 @@ const PokemonDetail = () => {
 
       <img
         src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonDetail.id}.png`}
-        alt=""
+        alt={pokemonDetail.name}
       />
       <div className="detail">
         
