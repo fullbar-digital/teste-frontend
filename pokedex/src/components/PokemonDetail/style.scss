@@ -1,0 +1,79 @@
+.pokemon-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.pokemon-img-bg {
+  width: 320px;
+  padding: 16px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 16px;
+}
+
+.pokemon-img {
+  max-width: 290px;
+}
+
+.detail {
+  margin-top: 16px;
+  width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.type-poke {
+  background: #95caa0;
+  border-radius: 16px;
+}
+
+.type-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-title {
+  display: flex;
+  justify-content: center;
+}
+
+.type-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.padding-radius {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.grass {
+  background: #fae078;
+}
+
+.poison {
+  background: #9db7f5;
+}
+
+.height {
+  background: #a7db8d;
+}
+
+.weight {
+  background: #fa92b2;
+}
+
+.overgrow {
+  background: #f5ac78;
+}
+
+.chlorophyll {
+  background: #ff5959;
+}
