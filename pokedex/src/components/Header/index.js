@@ -1,9 +1,11 @@
+import { useHistory } from "react-router-dom";
 import "./style.scss";
 
 const Header = () => {
+  const history = useHistory()
   return (
     <header className="header">
-      <img className="logo" src="./assets/img/logo.svg" alt=""/>
+      <img style={{cursor: "pointer"}} onClick={() => history.push("./")} className="logo" src="./assets/img/logo.svg" alt="Logo"/>
     </header>
   )
 }

@@ -1,9 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { GetPokemonsContext } from "./GetPokemonsContext";
 
 export const FilterAndPaginationContext = createContext();
 
 const FilterAndPaginationProvider = ({ children }) => {
   const [pokemonFiltered, setPokemonFiltered] = useState([]);
+  const { pokemons } = useContext(GetPokemonsContext);
   const [filterPokemon, setFilterPokemon] = useState({
     initialPokemon: "",
     finalPokemon: "",
@@ -11,8 +13,9 @@ const FilterAndPaginationProvider = ({ children }) => {
     pagination: "",
   });
 
-  const limit = filterPokemon.amountOfPokemonPerPage;
-  const total = filterPokemon.finalPokemon - filterPokemon.initialPokemon;
+  useEffect(() => {
+    setPokemonFiltered(pokemons);
+  }, [pokemons]);
 
   return (
     <FilterAndPaginationContext.Provider

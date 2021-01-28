@@ -1,12 +1,19 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { FilterAndPaginationContext } from "../../context/FilterAndPaginationContext";
+import { PokemonDetailContext } from "../../context/PokemonDetailContext";
 import Filters from "../Filters";
 import "./style.scss";
 
 const GridCard = () => {
-  const {pokemonFiltered} = useContext(FilterAndPaginationContext);
-  const history = useHistory()
+  const { pokemonFiltered } = useContext(FilterAndPaginationContext);
+  const { setPokemonDetail } = useContext(PokemonDetailContext);
+  const history = useHistory();
+
+  const pageDetail = (pokemon) => {
+    setPokemonDetail(pokemon);
+    history.push("./detail");
+  };
 
   return (
     <>
@@ -31,7 +38,12 @@ const GridCard = () => {
                   <p className="type">
                     {pokemon.types[0].type.name.toUpperCase()}
                   </p>
-                  <button className="button-info">INFO</button>
+                  <button
+                    className="button-info"
+                    onClick={() => pageDetail(pokemon)}
+                  >
+                    INFO
+                  </button>
                 </div>
               </div>
             </div>

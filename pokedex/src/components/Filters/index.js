@@ -66,6 +66,7 @@ const Filters = () => {
             name="initialPokemon"
             onChange={(e) => handleInputChange(e)}
             value={filterPokemon.initialPokemon}
+            required
           />
         </div>
         <div className="input-group">
@@ -76,6 +77,7 @@ const Filters = () => {
             name="finalPokemon"
             onChange={(e) => handleInputChange(e)}
             value={filterPokemon.finalPokemon}
+            required
           />
         </div>
         <div className="input-group">

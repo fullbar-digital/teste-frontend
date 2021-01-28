@@ -30,6 +30,10 @@
   cursor: pointer;
 }
 
+.button-filter:hover {
+  background: #6a9473;
+}
+
 @media (min-width: 1200px) {
   .form-filter {
     display: flex;
