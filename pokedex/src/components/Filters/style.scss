@@ -34,6 +34,13 @@
   background: #6a9473;
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: red
+}
+
 @media (min-width: 1200px) {
   .form-filter {
     display: flex;

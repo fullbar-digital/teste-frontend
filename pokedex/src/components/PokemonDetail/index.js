@@ -21,7 +21,6 @@ const PokemonDetail = () => {
           </div>
           <div className="type-content">
             <p className="grass padding-radius">{pokemonDetail.types[0].type.name !== "undefined" ? pokemonDetail.types[0].type.name.toUpperCase() : ""}</p>
-            {/* <p className="poison padding-radius">{pokemonDetail.types[1].type.name !== "undefined" ? pokemonDetail.types[1].type.name.toUpperCase() : ""}</p> */}
           </div>
         </div>
 

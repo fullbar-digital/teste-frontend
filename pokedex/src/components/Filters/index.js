@@ -1,13 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FilterAndPaginationContext } from "../../context/FilterAndPaginationContext";
 import { GetPokemonsContext } from "../../context/GetPokemonsContext";
 import "./style.scss";
 
 const Filters = () => {
   const { pokemons } = useContext(GetPokemonsContext);
-  const { filterPokemon, setFilterPokemon, setPokemonFiltered } = useContext(
-    FilterAndPaginationContext
-  );
+  const {
+    filterPokemon,
+    setFilterPokemon,
+    pokemonFiltered,
+    setPokemonFiltered,
+  } = useContext(FilterAndPaginationContext);
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,15 +32,17 @@ const Filters = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (Number(filterPokemon.initialPokemon) > Number(filterPokemon.finalPokemon)) {
-      return console.log("O campo incial não pode ser maior que o final");
+    if (
+      Number(filterPokemon.initialPokemon) > Number(filterPokemon.finalPokemon)
+    ) {
+      return setError("The start field cannot be greater than the end");
     }
 
     if (
       filterPokemon.initialPokemon > 300 ||
       filterPokemon.finalPokemon > 300
     ) {
-      return console.log("Só temos 300 Pokemons");
+      return setError("We only have 300 Pokemons");
     }
 
     const newPokemonFilter = pokemons.filter(
@@ -45,18 +51,30 @@ const Filters = () => {
         pokemon.id <= filterPokemon.finalPokemon
     );
 
-    setPokemonFiltered(newPokemonFilter);
+    setPokemonFiltered({
+      ...pokemonFiltered,
+      pokemons: newPokemonFilter,
+      pagination: {
+        initialPokemon: filterPokemon.initialPokemon,
+        finalPokemon: filterPokemon.finalPokemon,
+        amountOfPokemonPerPage: filterPokemon.amountOfPokemonPerPage,
+        pagination: filterPokemon.pagination,
+      },
+    });
 
     setFilterPokemon({
       initialPokemon: "",
       finalPokemon: "",
       amountOfPokemonPerPage: "",
       pagination: "",
-    })
+    });
+
+    setError("");
   };
 
   return (
     <section className="filter">
+      {error && <div className="error">{error}</div>}
       <form className="form-filter" onSubmit={handleSubmit}>
         <div className="input-group">
           <input
@@ -86,6 +104,7 @@ const Filters = () => {
             name="amountOfPokemonPerPage"
             onChange={(e) => handleSelectChange(e)}
             value={filterPokemon.amountOfPokemonPerPage}
+            required
           >
             <option value="" disabled>
               Amount of pokemon per page
@@ -101,6 +120,7 @@ const Filters = () => {
             name="pagination"
             onChange={(e) => handleSelectChange(e)}
             value={filterPokemon.pagination}
+            required
           >
             <option value="" disabled>
               Pagination Mode

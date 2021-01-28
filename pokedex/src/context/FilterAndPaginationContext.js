@@ -4,7 +4,7 @@ import { GetPokemonsContext } from "./GetPokemonsContext";
 export const FilterAndPaginationContext = createContext();
 
 const FilterAndPaginationProvider = ({ children }) => {
-  const [pokemonFiltered, setPokemonFiltered] = useState([]);
+  const [pokemonFiltered, setPokemonFiltered] = useState({pokemons: [], pagination: {}});
   const { pokemons } = useContext(GetPokemonsContext);
   const [filterPokemon, setFilterPokemon] = useState({
     initialPokemon: "",
@@ -14,7 +14,10 @@ const FilterAndPaginationProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    setPokemonFiltered(pokemons);
+    setPokemonFiltered({
+      ...pokemonFiltered,
+      pokemons
+    });
   }, [pokemons]);
 
   return (

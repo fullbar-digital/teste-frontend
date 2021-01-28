@@ -20,7 +20,7 @@ const GridCard = () => {
       <Filters />
       <section className="grid-card">
         <div className="card-container">
-          {pokemonFiltered.map((pokemon) => (
+          {pokemonFiltered.pokemons.map((pokemon) => (
             <div key={pokemon.id} className="card">
               <div className="card-info-pokemon">
                 <img
