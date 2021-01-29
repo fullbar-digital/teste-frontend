@@ -3,7 +3,7 @@ import { FilterAndPaginationContext } from "../../context/FilterAndPaginationCon
 import { GetPokemonsContext } from "../../context/GetPokemonsContext";
 import "./style.scss";
 
-const Filters = () => {
+const Filters = ({setCurrentPage}) => {
   const { pokemons } = useContext(GetPokemonsContext);
   const {
     filterPokemon,
@@ -45,6 +45,12 @@ const Filters = () => {
       return setError("We only have 300 Pokemons");
     }
 
+    if (filterPokemon.pagination === "Infinit Scroll") {
+      return setError(
+        "IMPORTANTE! Não consegui implementar a função de scroll infinito, mas consigui implementar paginação."
+      );
+    }
+
     const newPokemonFilter = pokemons.filter(
       (pokemon) =>
         pokemon.id >= filterPokemon.initialPokemon &&
@@ -61,6 +67,9 @@ const Filters = () => {
         pagination: filterPokemon.pagination,
       },
     });
+
+
+    setCurrentPage(1)
 
     setFilterPokemon({
       initialPokemon: "",
@@ -123,7 +132,7 @@ const Filters = () => {
             required
           >
             <option value="" disabled>
-              Pagination Mode
+              Pagination mode
             </option>
             <option value="Infinit Scroll">Infinit Scroll</option>
             <option value="Pagination">Pagination</option>

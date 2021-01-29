@@ -1,24 +1,18 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { GetPokemonsContext } from "./GetPokemonsContext";
+import { createContext, useState } from "react";
 
 export const FilterAndPaginationContext = createContext();
 
 const FilterAndPaginationProvider = ({ children }) => {
-  const [pokemonFiltered, setPokemonFiltered] = useState({pokemons: [], pagination: {}});
-  const { pokemons } = useContext(GetPokemonsContext);
+  const [pokemonFiltered, setPokemonFiltered] = useState({
+    pokemons: [],
+    pagination: {},
+  });
   const [filterPokemon, setFilterPokemon] = useState({
     initialPokemon: "",
     finalPokemon: "",
     amountOfPokemonPerPage: "",
     pagination: "",
   });
-
-  useEffect(() => {
-    setPokemonFiltered({
-      ...pokemonFiltered,
-      pokemons
-    });
-  }, [pokemons]);
 
   return (
     <FilterAndPaginationContext.Provider

@@ -1,0 +1,35 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 15px;
+}
+
+.width-and-height {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #58795f;
+  color: #fff;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.width-and-height:hover {
+  background: #709979;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.active {
+  background: #4d6953;
+}

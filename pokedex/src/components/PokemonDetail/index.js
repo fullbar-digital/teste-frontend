@@ -20,7 +20,11 @@ const PokemonDetail = () => {
             <p className="type-title">Type</p>
           </div>
           <div className="type-content">
-            <p className="grass padding-radius">{pokemonDetail.types[0].type.name !== "undefined" ? pokemonDetail.types[0].type.name.toUpperCase() : ""}</p>
+            <p className="grass padding-radius">
+              {pokemonDetail.types[0].type.name !== "undefined"
+                ? pokemonDetail.types[0].type.name.toUpperCase()
+                : ""}
+            </p>
           </div>
         </div>
 
@@ -47,8 +51,11 @@ const PokemonDetail = () => {
             <p className="type-title">Abilities</p>
           </div>
           <div className="type-content">
-            <p className="overgrow padding-radius">{pokemonDetail.abilities[0].ability.name.toUpperCase()}</p>
-            <p className="chlorophyll padding-radius">{pokemonDetail.abilities[1].ability.name.toUpperCase()}</p>
+            {pokemonDetail.abilities[0].ability.name !== "undefined" ? (
+              <p className="overgrow padding-radius">
+                {pokemonDetail.abilities[0].ability.name.toUpperCase()}
+              </p>
+            ): null}
           </div>
         </div>
       </div>

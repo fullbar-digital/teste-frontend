@@ -1,13 +1,30 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FilterAndPaginationContext } from "../../context/FilterAndPaginationContext";
 import { PokemonDetailContext } from "../../context/PokemonDetailContext";
+import Card from "../Card";
 import Filters from "../Filters";
+import Pagination from "../Pagination";
 import "./style.scss";
 
 const GridCard = () => {
   const { pokemonFiltered } = useContext(FilterAndPaginationContext);
   const { setPokemonDetail } = useContext(PokemonDetailContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState();
+
+  useEffect(() => {
+    setPostPerPage(Number(pokemonFiltered.pagination.amountOfPokemonPerPage));
+  }, [pokemonFiltered]);
+
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPosts = pokemonFiltered.pokemons.slice(
+    indexOfFirstPost,
+    indexOfLastPost
+  );
+
   const history = useHistory();
 
   const pageDetail = (pokemon) => {
@@ -15,41 +32,23 @@ const GridCard = () => {
     history.push("./detail");
   };
 
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
-      <Filters />
+      <Filters setCurrentPage={setCurrentPage} />
       <section className="grid-card">
         <div className="card-container">
-          {pokemonFiltered.pokemons.map((pokemon) => (
-            <div key={pokemon.id} className="card">
-              <div className="card-info-pokemon">
-                <img
-                  className="card-image"
-                  src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
-                  loading="lazy"
-                  alt={pokemon.name}
-                />
-
-                <div className="card-info">
-                  <div className="card-pokemon-number">
-                    <p className="number">#{pokemon.id}</p>
-                  </div>
-                  <h2 className="name">{pokemon.name.toUpperCase()}</h2>
-                  <p className="type">
-                    {pokemon.types[0].type.name.toUpperCase()}
-                  </p>
-                  <button
-                    className="button-info"
-                    onClick={() => pageDetail(pokemon)}
-                  >
-                    INFO
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+          <Card pokemonFiltered={currentPosts} pageDetail={pageDetail} />
         </div>
       </section>
+      <Pagination
+        postPerPage={postPerPage}
+        totalPosts={pokemonFiltered.pokemons.length}
+        paginate={paginate}
+      />
     </>
   );
 };
