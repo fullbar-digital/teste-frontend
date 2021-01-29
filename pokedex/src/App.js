@@ -1,24 +1,20 @@
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FilterAndPaginationProvider from "./context/FilterAndPaginationContext";
 import GetPokemonsProvider from "./context/GetPokemonsContext";
-import PokemonDetailProvider from "./context/PokemonDetailContext";
 import Detail from "./pages/Detail";
 import Home from "./pages/Home";
 
 const App = () => {
   return (
     <Router>
-
-    <GetPokemonsProvider>
-      <FilterAndPaginationProvider>
-        <PokemonDetailProvider>
+      <GetPokemonsProvider>
+        <FilterAndPaginationProvider>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/detail" component={Detail} />
+            <Route exact path="/detail/:name" component={Detail} />
           </Switch>
-        </PokemonDetailProvider>
-      </FilterAndPaginationProvider>
-    </GetPokemonsProvider>
+        </FilterAndPaginationProvider>
+      </GetPokemonsProvider>
     </Router>
   );
 };

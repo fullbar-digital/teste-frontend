@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FilterAndPaginationContext } from "../../context/FilterAndPaginationContext";
-import { PokemonDetailContext } from "../../context/PokemonDetailContext";
 import Card from "../Card";
 import Filters from "../Filters";
 import Pagination from "../Pagination";
@@ -9,7 +8,6 @@ import "./style.scss";
 
 const GridCard = () => {
   const { pokemonFiltered } = useContext(FilterAndPaginationContext);
-  const { setPokemonDetail } = useContext(PokemonDetailContext);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState();
@@ -28,8 +26,7 @@ const GridCard = () => {
   const history = useHistory();
 
   const pageDetail = (pokemon) => {
-    setPokemonDetail(pokemon);
-    history.push("./detail");
+    history.push(`./detail/${pokemon.name}`);
   };
 
   const paginate = (pageNumber) => {

@@ -1,13 +1,13 @@
 .input-standard {
-  width: 100%;
-  height: 50px;
-  margin-bottom: 16px;
-  outline: none;
   border-radius: 8px;
   border: none;
   color: rgb(119, 118, 118);
   font-size: 16px;
+  height: 50px;
+  margin-bottom: 16px;
+  outline: none;
   padding-left: 16px;
+  width: 100%;
 }
 
 .filter {
@@ -19,15 +19,15 @@
 }
 
 .button-filter {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 16px;
   background: #7eac88;
   border-radius: 8px;
-  font-size: 16px;
+  border: none;
   color: #fff;
   cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  padding: 16px;
+  width: 100%;
 }
 
 .button-filter:hover {
@@ -35,17 +35,17 @@
 }
 
 .error {
+  color: red;
   display: flex;
   justify-content: center;
   padding: 20px;
-  color: red
 }
 
 @media (min-width: 1200px) {
   .form-filter {
     display: flex;
-    width: 1150px;
     margin: 0 auto;
+    width: 1150px;
   }
 
   .input-group:not(:last-child) {

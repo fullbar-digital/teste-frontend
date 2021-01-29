@@ -1,18 +1,35 @@
-import { useContext } from "react";
-import { PokemonDetailContext } from "../../context/PokemonDetailContext";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { GetPokemonsContext } from "../../context/GetPokemonsContext";
 import "./style.scss";
 
 const PokemonDetail = () => {
-  const { pokemonDetail } = useContext(PokemonDetailContext);
+  const [detail, setDetail] = useState([]);
+  const { pokemons } = useContext(GetPokemonsContext);
+
+  const { name } = useParams();
+
+  useEffect(() => {
+    const getPokemonDetail = async () => {
+      const pokeDetail = pokemons.filter((pokemon) => pokemon.name === name);
+      setDetail(pokeDetail);
+      console.log(pokeDetail);
+    };
+
+    getPokemonDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pokemons]);
+
   return (
-    <section className="pokemon-detail">
-      <div className="pokemon-img-bg">
+    detail && (
+      <section className="pokemon-detail">
+        {/* <div className="pokemon-img-bg">
         <img
-          src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonDetail.id}.png`}
-          alt={pokemonDetail.name}
+          src={`https://pokeres.bastionbot.org/images/pokemon/${detail.id}.png`}
+          alt={detail.name}
           className="pokemon-img"
         />
-        <h2 className="name">{pokemonDetail.name.toUpperCase()}</h2>
+        <h2 className="name">{detail.name.toUpperCase()}</h2>
       </div>
       <div className="detail">
         <div className="type-group">
@@ -21,8 +38,8 @@ const PokemonDetail = () => {
           </div>
           <div className="type-content">
             <p className="grass padding-radius">
-              {pokemonDetail.types[0].type.name !== "undefined"
-                ? pokemonDetail.types[0].type.name.toUpperCase()
+              {detail.types[0].type.name !== "undefined"
+                ? detail.types[0].type.name.toUpperCase()
                 : ""}
             </p>
           </div>
@@ -33,7 +50,7 @@ const PokemonDetail = () => {
             <p className="type-title">Height</p>
           </div>
           <div className="type-content">
-            <p className="height padding-radius">{pokemonDetail.height}</p>
+            <p className="height padding-radius">{detail.height}</p>
           </div>
         </div>
 
@@ -42,7 +59,7 @@ const PokemonDetail = () => {
             <p className="type-title">Weight</p>
           </div>
           <div className="type-content">
-            <p className="weight padding-radius">{pokemonDetail.weight}</p>
+            <p className="weight padding-radius">{detail.weight}</p>
           </div>
         </div>
 
@@ -51,15 +68,16 @@ const PokemonDetail = () => {
             <p className="type-title">Abilities</p>
           </div>
           <div className="type-content">
-            {pokemonDetail.abilities[0].ability.name !== "undefined" ? (
+            {detail.abilities[0].ability.name !== "undefined" ? (
               <p className="overgrow padding-radius">
-                {pokemonDetail.abilities[0].ability.name.toUpperCase()}
+                {detail.abilities[0].ability.name.toUpperCase()}
               </p>
-            ): null}
+            ) : null}
           </div>
         </div>
-      </div>
-    </section>
+      </div> */}
+      </section>
+    )
   );
 };
 
