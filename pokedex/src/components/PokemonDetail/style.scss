@@ -77,3 +77,21 @@
 .chlorophyll {
   background: #ff5959;
 }
+
+
+@media(min-width: 1000px) {
+  .pokemon-detail {
+    flex-direction: row;
+  }
+  
+  .pokemon-img-bg {
+    margin-top: 16px;
+    margin-right: 16px;
+    width: 320px;
+    height: 504px;
+  }
+  
+  .pokemon-img {
+    max-width: 290px;
+  }
+}
