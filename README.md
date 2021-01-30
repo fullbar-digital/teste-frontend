@@ -13,7 +13,7 @@ git clone https://github.com/ronaldo-aquino/teste-frontend.git
 Entre na pasta frontend-challenge:
 
 ```
-cd frontend-challenge
+cd teste-frontend
 ```
 
 Instale as dependências:
