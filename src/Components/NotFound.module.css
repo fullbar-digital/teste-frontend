@@ -1,0 +1,20 @@
+.section {
+  width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  flex: 1 1;
+  text-align: center;
+}
+.section div img {
+  margin: auto;
+}
+.section a {
+  text-decoration: underline;
+  color: #5252e2;
+}
+@media (max-width: 1000px) {
+  .section {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}

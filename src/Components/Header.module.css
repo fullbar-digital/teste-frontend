@@ -1,0 +1,39 @@
+.header {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 0 1rem;
+}
+.header img {
+  height: 50px;
+  transform: scale(1);
+  transition: 0.3s;
+}
+.header img:hover {
+  animation: pokeballAnimation 0.8s ease-in-out infinite;
+}
+@keyframes pokeballAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+  /* from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(-45deg);
+  } */
+}
