@@ -1,0 +1,17 @@
+.grid-card {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 1400px) {
+  .card-container {
+    width: 1400px;
+  }
+}

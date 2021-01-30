@@ -1,0 +1,97 @@
+.pokemon-detail {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.pokemon-img-bg {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+  width: 320px;
+}
+
+.pokemon-img {
+  max-width: 290px;
+}
+
+.detail {
+  background: #fff;
+  border-radius: 16px;
+  margin-top: 16px;
+  padding: 16px;
+  width: 320px;
+}
+
+.type-poke {
+  background: #95caa0;
+  border-radius: 16px;
+}
+
+.type-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.type-title {
+  display: flex;
+  justify-content: center;
+}
+
+.type-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.padding-radius {
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.grass {
+  background: #fae078;
+}
+
+.poison {
+  background: #9db7f5;
+}
+
+.height {
+  background: #a7db8d;
+}
+
+.weight {
+  background: #fa92b2;
+}
+
+.overgrow {
+  background: #f5ac78;
+}
+
+.chlorophyll {
+  background: #ff5959;
+}
+
+
+@media(min-width: 1000px) {
+  .pokemon-detail {
+    flex-direction: row;
+  }
+  
+  .pokemon-img-bg {
+    height: 504px;
+    margin-right: 16px;
+    margin-top: 16px;
+    width: 320px;
+  }
+  
+  .pokemon-img {
+    max-width: 290px;
+  }
+}

@@ -1,0 +1,71 @@
+.card {
+  background: #c3f8cd;
+  border-radius: 16px;
+  display: flex;
+  height: 320px;
+  justify-content: center;
+  margin: 16px;
+  max-width: 200px;
+  min-width: 200px;
+  position: relative;
+}
+
+.card-image {
+  height: 108px;
+  margin-top: 16px;
+  width: 108px;
+}
+.card-info-pokemon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.card-pokemon-number {
+  align-items: center;
+  background: #9dd1a7;
+  border-radius: 16px;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin-top: 16px;
+  width: 70px;
+}
+
+.number {
+  margin: 0;
+}
+
+.name {
+  margin-top: 16px;
+  // margin: 0;
+}
+
+.type {
+  margin-top: 16px;
+  margin: 0;
+}
+
+.button-info {
+  background: #76a880;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+  outline: none;
+  padding: 10px;
+  width: 80px;
+}
+
+.button-info:hover {
+  background: #56805f;
+}
