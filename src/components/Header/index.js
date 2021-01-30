@@ -7,9 +7,9 @@ const Header = () => {
     <header className="header">
       <img
         style={{ cursor: "pointer" }}
-        onClick={() => history.push("./")}
+        onClick={() => history.push("/")}
         className="logo"
-        src="./assets/img/logo.svg"
+        src="/assets/img/logo.svg"
         alt="Logo"
       />
     </header>

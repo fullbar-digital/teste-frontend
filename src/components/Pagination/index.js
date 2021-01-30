@@ -1,10 +1,12 @@
 import "./style.scss";
 
-const Pagination = ({ postPerPage, totalPosts, paginate, setCurrentPage }) => {
-  const pageNumbers = [];
+const Pagination = ({ postPerPage, totalPosts, paginate, currentPage }) => {
 
+  const pageNumbers = [];
+ 
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pageNumbers.push(i);
+    
   }
 
 
@@ -14,7 +16,7 @@ const Pagination = ({ postPerPage, totalPosts, paginate, setCurrentPage }) => {
         {pageNumbers.map((page) => (
           <div
             key={page}
-            className="width-and-height"
+            className={`width-and-height ${page === currentPage && "active"}`}
             onClick={() => paginate(page)}
           >
             {page}
