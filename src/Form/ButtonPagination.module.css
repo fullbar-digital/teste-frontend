@@ -1,0 +1,28 @@
+.button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid rgb(204 204 204);
+  background: white;
+  color: #333;
+}
+.button:hover,
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(204, 204, 204, 0.5);
+}
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.arrow-left {
+  transform: rotate(180deg);
+}
+.arrow-left::after {
+  content: '\279C';
+}
+.arrow-right::after {
+  content: '\279C';
+}

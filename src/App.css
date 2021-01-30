@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+  font-family: pokemon;
+  src: url('./Font/pokemon-solid.ttf');
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', 'sans-serif';
+  color: #333;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+.anime {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: anime 0.3s forwards;
+}
+@keyframes anime {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}

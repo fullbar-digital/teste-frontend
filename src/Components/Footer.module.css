@@ -1,0 +1,22 @@
+.footer {
+  text-align: center;
+  background: #ff1b32;
+  padding: 2rem 0;
+}
+.footer p,
+.footer a {
+  color: white;
+  font-size: 1.2rem;
+}
+.footer a {
+  position: relative;
+}
+.footer a::before {
+  content: '';
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+  background: white;
+  position: absolute;
+  transition: 0.3s;
+}

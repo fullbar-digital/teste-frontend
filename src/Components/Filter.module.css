@@ -1,0 +1,56 @@
+.filter {
+  padding: 1rem;
+  border: 2px solid rgb(204 204 204);
+  border-radius: 4px;
+  height: min-content;
+  position: sticky;
+  top: 1rem;
+}
+.filter:hover,
+.filter:focus {
+  box-shadow: 0 0 0 3px rgba(204, 204, 204, 0.5);
+}
+.filter div:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.filter label {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.filter select,
+.filter input {
+  display: block;
+  width: 100%;
+  border: 2px solid rgb(204 204 204);
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.filter select:focus,
+.filter input:focus,
+.filter select:hover,
+.filter input:hover {
+  box-shadow: 0 0 0 3px rgba(204, 204, 204, 0.5);
+  outline: none;
+}
+.button {
+  width: 100%;
+  padding: 0.5rem;
+  background: #ff1b32;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.button:hover,
+.button:focus {
+  box-shadow: 0 0 0 3px rgba(255, 27, 50, 0.5);
+  outline: none;
+}
+@media (max-width: 1000px) {
+  .filter {
+    position: initial;
+  }
+}
