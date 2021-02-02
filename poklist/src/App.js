@@ -1,13 +1,17 @@
-import './App.css';
-import Routes from './routes';
+import { Container } from "./styles/appStyle";
+import FooterBar from "./components/FooterBar";
+import HeaderBar from "./components/HeaderBar";
+import Routes from "./routes";
+import { GlobalStyle } from "./styles/global";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <Routes/>
-      </header>
-    </div>
+    <Container>
+      <GlobalStyle/>
+      <HeaderBar/>
+      <Routes />
+      <FooterBar/>
+    </Container>
   );
 }
 
