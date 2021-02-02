@@ -5,4 +5,8 @@ export const MainContainer = styled.main`
     min-height: 80vh;
 
     background-color: #fff6;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center
 `

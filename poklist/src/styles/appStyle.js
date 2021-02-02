@@ -10,5 +10,5 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    background-color: #ccc;
+    background-color: #666;
 `
