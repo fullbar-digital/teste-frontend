@@ -1,0 +1,1 @@
+export const GET_POKEMON_DATA = '@pokeDataList/GET_INFO'
