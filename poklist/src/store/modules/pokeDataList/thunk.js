@@ -2,13 +2,13 @@ import axios from 'axios'
 import {getAllPokemonData} from './actions'
 
 export const getAllPokemonDataThunk = () => (dispatch, getState) =>{
-    const {pokeUrl} =  getState(state => state.pokeUrl)
-
+    const {pokeUrl} =  getState()
+    
     pokeUrl.forEach(url => {
         axios.get(url)
         .then(response => {
-            const { name, id, sprites,types, abilities } = response.data
-            const { front_default } = sprites
+            const { name, id, sprites,types, abilities, height, weight } = response.data
+            const { front_default, front_shiny } = sprites
             let pokeTypes = types[0].type.name
             if(types[1]){
                 pokeTypes += ' / ' + types[1].type.name
@@ -19,11 +19,15 @@ export const getAllPokemonDataThunk = () => (dispatch, getState) =>{
                 name,
                 number: id,
                 image: front_default,
+                imageShiny:front_shiny,
                 type: pokeTypes,
-                ability: mainAbility
+                ability: mainAbility,
+                height,
+                weight
             }
-
+            
             dispatch(getAllPokemonData(pokemonDataFiltered))
+            
         })
     });
 }

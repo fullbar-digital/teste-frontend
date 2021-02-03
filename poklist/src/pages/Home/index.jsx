@@ -7,11 +7,11 @@ import {getAllPokemonDataThunk} from "../../store/modules/pokeDataList/thunk"
 
 const Home = () => {
   const dispatch = useDispatch();
-  const pokemonData = useSelector(state => state.pokemonData)
+  const nextUrl = useSelector(state => state.nextUrl)
   
   setTimeout(() => {
     
-  console.log(pokemonData)
+  // console.log(nextUrl)
   }, 5000);
 
   useEffect(() => {

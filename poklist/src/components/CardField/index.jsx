@@ -1,21 +1,32 @@
 import Card from "../Card";
 import { CardFieldContainer } from "./style";
+import { useSelector } from 'react-redux'
 
 const CardField = () => {
+  const pokemonData = useSelector(state => state.pokemonData)
+
+  const crescentOrder = (a, b) => {
+    return a.number - b.number
+  }
+
+  const pokemonDataREfined = pokemonData.sort(crescentOrder)
+  // console.log(pokemonDataREfined)
+
   return (
     <CardFieldContainer>
-      <Card
-        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/249.png"
-        name="Luguia"
-        number="249"
-        type="Flying/Psychic"
+    {pokemonDataREfined.map(({image, name, number, type}) => {
+      return (
+        <Card
+        key={number}
+        image={image}
+        name={name}
+        number={number}
+        type={type}
       />
-      <Card
-        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/392.png"
-        name="Infernape"
-        number="392"
-        type="Fire/Figthing"
-      />
+      )
+    })}
+      
+      
     </CardFieldContainer>
   );
 };
