@@ -4,7 +4,7 @@ export const pokemonUrlReducer = (state=[], action) => {
     switch (action.type) {
         case GET_POKEMON_URL:
             
-            return [...state, action.pokeURL];
+            return [...state, ...action.pokeURL];
     
         default:
             return state;

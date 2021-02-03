@@ -4,7 +4,7 @@ export const getAllPokemonDataReducer = (state = [], action) => {
     switch (action.type) {
         case GET_POKEMON_DATA:
             
-            return [...state, action];
+            return [...state, action.pokeList];
     
         default:
             return state;

@@ -7,12 +7,20 @@ import {getAllPokemonDataThunk} from "../../store/modules/pokeDataList/thunk"
 
 const Home = () => {
   const dispatch = useDispatch();
-  const pokeURL = useSelector(state => state.pokeUrl)
+  const pokemonData = useSelector(state => state.pokemonData)
   
+  setTimeout(() => {
+    
+  console.log(pokemonData)
+  }, 5000);
+
   useEffect(() => {
       dispatch(getAllPokemonsThunk())
-      dispatch(getAllPokemonDataThunk())
+      setTimeout(() => {
+        dispatch(getAllPokemonDataThunk())
+      }, 3000); 
   },[])
+
   return (
     <MainBox>
       <CardField />
