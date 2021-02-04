@@ -37,4 +37,4 @@ Ao clicar em um pokémon da lista, apresente os detalhes do mesmo. O detalhe dev
  - API: https://pokeapi.co/
  - Documentação: https://pokeapi.co/docsv2/
  
-# Boa Sorte :)
+# Boa Sorte :)1
