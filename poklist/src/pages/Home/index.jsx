@@ -45,7 +45,7 @@ const Home = () => {
     />
     <Pagination
       pokesPerPage={pokePerPage}
-      totalPokes={finalPoke}
+      totalPokes={pokemonInARange.length}
       paginate={paginate}
       currentPage={currentPage}
     />

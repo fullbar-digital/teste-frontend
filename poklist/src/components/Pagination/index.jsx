@@ -3,31 +3,30 @@ import { NavContainer } from "./style";
 const Pagination = ({ pokesPerPage, totalPokes, paginate, currentPage }) => {
   const numberOfPages = Math.ceil(totalPokes / pokesPerPage);
 
-  // for (let i = 1; i <= Math.ceil(totalPokes / pokesPerPage); i++) {
-  //   numberOfPages.push(i);
-  // }
-
   const pastPages = []
   const nextPages = []
+
+  const paginationRange = numberOfPages < 7 ? numberOfPages : 7
+  console.log(`number of pages: ${numberOfPages}, Pagination Range:${paginationRange}, total pokes: ${totalPokes}, pokes per page ${ pokesPerPage}`)
 
   const displayPages = (numberOfPAges, currentPage) => {
     switch (currentPage) {
       case 1:
-        for(let i = 2; i <= 7; i++){
+        for(let i = 2; i <= paginationRange; i++){
           nextPages.push(i)
         }
         break;
 
       case 2:
         pastPages.push(1)
-        for(let i = 3; i <= 7; i++){
+        for(let i = 3; i <= paginationRange; i++){
           nextPages.push(i)
         }
         break;
 
       case 3:
         pastPages.push(1, 2)
-        for(let i = 4; i <= 7; i++){
+        for(let i = 4; i <= paginationRange; i++){
           nextPages.push(i)
         }
         break;
@@ -35,21 +34,22 @@ const Pagination = ({ pokesPerPage, totalPokes, paginate, currentPage }) => {
       case numberOfPAges - 2:
         
         for(let i = numberOfPAges - 6; i < currentPage ; i++){
-          pastPages.push(i)
+          i > 0 && pastPages.push(i)
         }
         nextPages.push(numberOfPAges - 1, numberOfPAges)
         break;
 
       case numberOfPAges - 1:
         for(let i = numberOfPAges - 6; i < currentPage; i++){
-          pastPages.push(i)
+          i > 0 && pastPages.push(i)
         }
         nextPages.push( numberOfPAges)
         break;
 
       case numberOfPAges:
         for(let i = numberOfPAges - 6; i < currentPage; i++){
-          pastPages.push(i)
+          i > 0 && pastPages.push(i)
+
         }
         break;
     
@@ -59,9 +59,9 @@ const Pagination = ({ pokesPerPage, totalPokes, paginate, currentPage }) => {
         break;
     }
   }
-  const totalPages = Math.ceil(totalPokes / pokesPerPage)
+  
   let pastPageButtom = currentPage > 1 ? currentPage - 1 : currentPage
-  let nextPageButtom = currentPage < totalPages ? currentPage + 1 : currentPage
+  let nextPageButtom = currentPage < numberOfPages ? currentPage + 1 : currentPage
 
 
 
@@ -99,7 +99,7 @@ const Pagination = ({ pokesPerPage, totalPokes, paginate, currentPage }) => {
           Proximo
         </li>
 
-        <li onClick={() => paginate(totalPages)}>
+        <li onClick={() => paginate(numberOfPages)}>
           Último
         </li>
       </ul>
