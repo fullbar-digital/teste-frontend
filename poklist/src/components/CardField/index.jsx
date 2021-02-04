@@ -2,19 +2,14 @@ import Card from "../Card";
 import { CardFieldContainer } from "./style";
 import { useSelector } from 'react-redux'
 
-const CardField = () => {
-  const pokemonData = useSelector(state => state.pokemonData)
+const CardField = ({pokemonList}) => {
+  
 
-  const crescentOrder = (a, b) => {
-    return a.number - b.number
-  }
-
-  const pokemonDataREfined = pokemonData.sort(crescentOrder)
-  // console.log(pokemonDataREfined)
+ 
 
   return (
     <CardFieldContainer>
-    {pokemonDataREfined.map(({image, name, number, type}) => {
+    {pokemonList.map(({image, name, number, type}) => {
       return (
         <Card
         key={number}
