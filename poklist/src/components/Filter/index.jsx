@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FormContainer } from "./style";
 
-const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage}) => {
+const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage, setPaginationType}) => {
   const [initial, setInitial] = useState(1)
   const [final, setFinal] = useState(30)
   
@@ -19,11 +19,13 @@ const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage}) => {
   });
 
   const handleForm = (data) => {
-    const{initialFilter, finalFilter, pokesPerPAge} = data
+    console.log('click')
+    const{initialFilter, finalFilter, pokesPerPage, pagination} = data
 
     setInitialPoke(initialFilter - 1)
     setFinalPoke(finalFilter)
-    setPokePerPage(pokesPerPAge)
+    // setPokePerPage(pokesPerPage)
+    setPaginationType(pagination)
   };
   return (
     <FormContainer onSubmit={handleSubmit(handleForm)}>
@@ -80,8 +82,8 @@ const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage}) => {
         <label htmlFor="pagination">Qual Tipo? </label>
         <select ref={register} name="pagination" id="pagination">
           
-          <option value='InfinityScroll' defaultValue>Fluido</option>
-          <option value="Paginated">Paginado</option>
+          <option value="pages" defaultValue >Paginado</option>
+          <option value='infinity' >Fluido</option>
         </select>
         {errors.pagination && (
           <p className="error">{errors.pagination.message}</p>

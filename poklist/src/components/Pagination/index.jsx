@@ -7,8 +7,7 @@ const Pagination = ({ pokesPerPage, totalPokes, paginate, currentPage }) => {
   const nextPages = []
 
   const paginationRange = numberOfPages < 7 ? numberOfPages : 7
-  console.log(`number of pages: ${numberOfPages}, Pagination Range:${paginationRange}, total pokes: ${totalPokes}, pokes per page ${ pokesPerPage}`)
-
+ 
   const displayPages = (numberOfPAges, currentPage) => {
     switch (currentPage) {
       case 1:
