@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FormContainer } from "./style";
 
-const Filter = ({setInitialFilter, setfinalFilter}) => {
+const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage}) => {
   const [initial, setInitial] = useState(1)
   const [final, setFinal] = useState(30)
   
@@ -19,7 +19,11 @@ const Filter = ({setInitialFilter, setfinalFilter}) => {
   });
 
   const handleForm = (data) => {
-    console.log(data);
+    const{initialFilter, finalFilter, pokesPerPAge} = data
+
+    setInitialPoke(initialFilter - 1)
+    setFinalPoke(finalFilter)
+    setPokePerPage(pokesPerPAge)
   };
   return (
     <FormContainer onSubmit={handleSubmit(handleForm)}>
