@@ -7,34 +7,36 @@ export const getAllPokemonsThunk = (URL) => async (dispatch, getState) => {
   const nationalDexSize = 898
   
   const pokeURL = URL || "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0";
-  
-  const recursiveLoop = (Url, list) =>{
-    dispatch(getAllPokemons(Url))
+
+  const recursiveLoop = (UrlList, list) =>{
+    dispatch(getAllPokemons(UrlList))
     const nextURL = list.data.next
-    if (nextURL) {
-      dispatch(getAllPokemonsThunk(nextURL));
-    }
+    dispatch(getAllPokemonsThunk(nextURL));
   }
 
-  const setTheFinalPokes = (Url, nationalDexSize) => {
+  const setTheFinalPokes = (UrlList, nationalDexSize) => {
+    const listToAdd = []
     for(let i = nationalDexSize ; i >  pokeUrlSize; i--){
       const addIndex = nationalDexSize - i
-      dispatch(getAllPokemons(Url[addIndex]))
+      listToAdd.push(UrlList[addIndex])
     }
+    dispatch(getAllPokemons(listToAdd))
     
   }
-
+  
   try {
     await axios.get(pokeURL)
       .then((list) => {
         const results = list.data.results;
-        const Url = results.map((item) => item.url);
-
-        pokeUrlSize + Url.length < nationalDexSize ? 
-          recursiveLoop(Url, list) : 
-          setTheFinalPokes(Url, nationalDexSize)
+        const UrlList = results.map((item) => item.url);
+        
+        pokeUrlSize + UrlList.length < nationalDexSize ? 
+          recursiveLoop(UrlList, list) : 
+          setTheFinalPokes(UrlList, nationalDexSize)
       });
   } catch (error) {
     console.error(error);
   }
+  console.log(pokeUrlSize)
+
 };

@@ -12,15 +12,14 @@ const Home = () => {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1)
   const [pokePerPage, setPokePerPage] = useState(10)
-  const [initialPoke, setInitialPoke] = useState(1)
-  const [finalPoke, setFinalPoke] = useState(150)
+  const [initialPoke, setInitialPoke] = useState(0)
+  const [finalPoke, setFinalPoke] = useState(898)
 
-console.log(pokemonData)
-  useEffect(() => {
+  useEffect( () => {
       dispatch(getAllPokemonsThunk())
       setTimeout(() => {
         dispatch(getAllPokemonDataThunk())
-      }, 3000); 
+      }, 2500); 
   },[])
 
   const crescentOrder = (a, b) => {
@@ -28,6 +27,7 @@ console.log(pokemonData)
   }
 
   const paginate = pageNumber => setCurrentPage(pageNumber)
+
   const pokemonInNumericOrder = pokemonData.sort(crescentOrder)
 
   const lastPokeOnPage = currentPage * pokePerPage
@@ -45,7 +45,7 @@ console.log(pokemonData)
     />
     <Pagination
       pokesPerPage={pokePerPage}
-      totalPokes={150}
+      totalPokes={finalPoke}
       paginate={paginate}
       currentPage={currentPage}
     />

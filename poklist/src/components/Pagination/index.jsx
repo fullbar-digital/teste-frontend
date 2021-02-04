@@ -59,29 +59,49 @@ const Pagination = ({ pokesPerPage, totalPokes, paginate, currentPage }) => {
         break;
     }
   }
+  const totalPages = Math.ceil(totalPokes / pokesPerPage)
+  let pastPageButtom = currentPage > 1 ? currentPage - 1 : currentPage
+  let nextPageButtom = currentPage < totalPages ? currentPage + 1 : currentPage
+
+
 
   displayPages(numberOfPages, currentPage)
 
   return (
     <NavContainer>
       <ul>
-        <li>Primeiro</li>
-        <li>Anterior</li>
+
+        <li onClick={() => paginate(1)}>
+          Primeiro
+        </li>
+
+        <li onClick={() => paginate(pastPageButtom)} >
+          Anterior
+        </li>
+
         {pastPages.map((number) => (
           <li key={number} onClick={() => paginate(number)}>
             {number}
           </li>
         ))}
+
         <li className='currentPage'>
             {currentPage}
           </li>
+
         {nextPages.map((number) => (
           <li key={number} onClick={() => paginate(number)}>
             {number}
           </li>
         ))}
-        <li>Proximo</li>
-        <li>Último</li>
+
+        <li onClick={() => paginate(nextPageButtom)}>
+          Proximo
+        </li>
+
+        <li onClick={() => paginate(totalPages)}>
+          Último
+        </li>
       </ul>
     </NavContainer>
   );
