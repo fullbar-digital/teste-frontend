@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
   width: 200px;
-  height: 220px;
+  height: ${(props) => (props.highlighted ? "300px" : "200px")};
+
+  transform: height 1s;
   margin-right: 15px;
 
   background-color: #fff3;
@@ -18,6 +20,14 @@ export const CardContainer = styled.div`
   h2 {
     font-size: 18px;
   }
+  .types {
+    color: #fff;
+    background-color: ${props => props.bcType};
+
+    padding: 5px;
+    margin-left:10px;
+    border-radius:5px;
+  }
 
   p {
     font-size: 13px;
@@ -29,4 +39,4 @@ const ImageContainer = styled.img`
   background-color: #fff;
 `;
 
-export default ImageContainer
+export default ImageContainer;

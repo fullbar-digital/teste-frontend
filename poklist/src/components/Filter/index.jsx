@@ -19,15 +19,16 @@ const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage, setPaginationType
   });
 
   const handleForm = (data) => {
-    console.log('click')
+    console.log(data)
     const{initialFilter, finalFilter, pokesPerPage, pagination} = data
 
     setInitialPoke(initialFilter - 1)
     setFinalPoke(finalFilter)
-    // setPokePerPage(pokesPerPage)
+    setPokePerPage(pokesPerPage)
     setPaginationType(pagination)
     setPokePages([])
     updatePages()
+    console.log(data)
   };
   return (
     <FormContainer onSubmit={handleSubmit(handleForm)}>
@@ -69,14 +70,14 @@ const Filter = ({setInitialPoke, setFinalPoke, setPokePerPage, setPaginationType
 
       <div>
         <label htmlFor="pokesPerPage">Quantos item por página? </label>
-        <select ref={register} name="pokesPerPAge" id="pokesPerPage">
+        <select ref={register} name="pokesPerPage" id="pokesPerPage">
           <option value={10} defaultValue>
             10
           </option>
           <option value={20}>20</option>
           <option value={30}>30</option>
         </select>
-        {errors.pokesPerPAge && (
+        {errors.pokesPerPage && (
           <p className="error">{errors.pokesPerPAge.message}</p>
         )}
       </div>

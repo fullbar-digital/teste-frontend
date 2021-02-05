@@ -37,6 +37,4 @@ export const getAllPokemonsThunk = (URL) => async (dispatch, getState) => {
   } catch (error) {
     console.error(error);
   }
-  console.log(pokeUrlSize)
-
 };

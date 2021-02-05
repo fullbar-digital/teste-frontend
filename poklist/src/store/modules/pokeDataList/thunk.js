@@ -3,7 +3,6 @@ import {getAllPokemonData} from './actions'
 
 export const getAllPokemonDataThunk = () => (dispatch, getState) =>{
     const {pokeUrl} =  getState()
-    console.log("hei")
     pokeUrl.forEach(url => {
         axios.get(url)
         .then(response => {

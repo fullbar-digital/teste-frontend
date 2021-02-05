@@ -42,6 +42,7 @@ const Home = () => {
     firstPokeOnPage,
     lastPokeOnPage
   );
+  console.log(`pokePerPage ${pokePerPage}`)
   
   useEffect(() => {
     setPokePages([...pokePages, ...pokemonFiltered])
