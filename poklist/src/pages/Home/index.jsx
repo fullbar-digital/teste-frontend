@@ -16,6 +16,7 @@ const Home = () => {
   const [initialPoke, setInitialPoke] = useState(0);
   const [finalPoke, setFinalPoke] = useState(898);
   const [paginationType, setPaginationType] = useState("pages");
+  const [pokePages, setPokePages] = useState([])
 
   useEffect(() => {
     dispatch(getAllPokemonsThunk());
@@ -23,6 +24,7 @@ const Home = () => {
       dispatch(getAllPokemonDataThunk());
     }, 2500);
   }, []);
+
 
   const crescentOrder = (a, b) => {
     return a.number - b.number;
@@ -40,6 +42,47 @@ const Home = () => {
     firstPokeOnPage,
     lastPokeOnPage
   );
+  
+  useEffect(() => {
+    setPokePages([...pokePages, ...pokemonFiltered])
+    
+  }, [currentPage])
+
+  const paginationDecider = (paginationType) => {
+  switch (paginationType) {
+    case "pages":
+      return <>
+      <Pagination
+      pokesPerPage={pokePerPage}
+      totalPokes={pokemonInARange.length}
+      paginate={paginate}
+      currentPage={currentPage}
+    />
+    <CardField 
+        pokemonList={pokemonFiltered} 
+      />
+    </>
+      
+
+    case  "infinity":
+      return <>
+        <CardField 
+        pokemonList={pokePages} 
+        infinity
+        currentPage={currentPage}
+        pokePerPage={pokePerPage}
+        totalPokes={pokemonInARange.length}
+        paginate={paginate}
+      />
+      </>
+      
+  
+    default:
+      return <div> Carregando ... </div>
+  }
+}
+
+  const updatePages = () => setPokePages([...pokePages, ...pokemonFiltered])
 
   return (
     <MainBox>
@@ -48,25 +91,12 @@ const Home = () => {
         setFinalPoke={setFinalPoke}
         setPokePerPage={setPokePerPage}
         setPaginationType={setPaginationType}
+        updatePages={updatePages}
+        setPokePages={setPokePages}
       />
 
-      {paginationType === "pages" && (
-        <Pagination
-          pokesPerPage={pokePerPage}
-          totalPokes={pokemonInARange.length}
-          paginate={paginate}
-          currentPage={currentPage}
-        />
-      )}
+      {paginationDecider(paginationType)}
 
-      <CardField 
-        pokemonList={pokemonFiltered} 
-        paginationType={paginationType}
-        currentPage={currentPage}
-        pokePerPage={pokePerPage}
-        totalPokes={pokemonInARange.length}
-        paginate={paginate}
-      />
     </MainBox>
   );
 };

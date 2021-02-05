@@ -2,10 +2,12 @@ import { useRef, useCallback } from "react";
 import Card from "../Card";
 import { CardFieldContainer } from "./style";
 
-const CardField = ({ pokemonList, paginationType, currentPage, pokePerPage, totalPokes, paginate }) => {
-
+const CardField = ({ pokemonList, infinity = false, currentPage, pokePerPage, totalPokes, paginate, pokePages, updatePage }) => {
+  
+  
   const numberOfPages = Math.ceil(totalPokes / pokePerPage);
 
+  
   const observer = useRef();
   const lastBookElementRef = useCallback( node =>{
    
@@ -18,9 +20,10 @@ const CardField = ({ pokemonList, paginationType, currentPage, pokePerPage, tota
     if (node) observer.current.observe(node)
   }, [currentPage, numberOfPages, paginate]);
 
+  
   return (
     <CardFieldContainer>
-      {paginationType === "infinity" ? (
+      {infinity ? (
         <>
         {console.log(pokemonList)}
           {pokemonList.map(({ image, name, number, type }, index) => {
@@ -33,6 +36,7 @@ const CardField = ({ pokemonList, paginationType, currentPage, pokePerPage, tota
                   number={number}
                   type={type}
                 />
+                <div>{currentPage}</div>
               </div>
             ) : (
               <Card
