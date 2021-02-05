@@ -12,7 +12,7 @@ A lista a seguir são todas as dependencias usadas nesse projeto, mesmo que seja
   - @hookform/resolvers
   - react-hook-form
 ​
-##### Processo de desenvolvimento ###
+### Processo de desenvolvimento ##
 
 A primeira coisa que eu fiz, depois do fork e do git clone, foi pensar em todos os requisitos em como eles interagem entre sí e quais dependencias eu precisaria. 
 
