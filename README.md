@@ -3,14 +3,14 @@ Aqui temos uma lista com todos os pokemons conhecidos, e antes de perguntar o no
 ​
 ## Dependencias usadas ##
 A lista a seguir são todas as dependencias usadas nesse projeto, mesmo que seja em só um componente:
-  -axios
-  -react-router-dom
-  -redux
-  -redux-thunk
-  -react-redux
-  -yup
-  -@hookform/resolvers
-  -react-hook-form
+  - axios
+  - react-router-dom
+  - redux
+  - redux-thunk
+  - react-redux
+  - yup
+  - @hookform/resolvers
+  - react-hook-form
 ​
 ##### Processo de desenvolvimento ###
 
