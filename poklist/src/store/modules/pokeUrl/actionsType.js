@@ -1,0 +1,1 @@
+export const GET_POKEMON_URL = '@pokelist/URL'
