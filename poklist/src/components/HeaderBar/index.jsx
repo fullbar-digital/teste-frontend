@@ -3,7 +3,7 @@ import {HeaderContainer} from './style'
 const HeaderBar = () => {
     return(
         <HeaderContainer>
-            Texto
+            <h1>Super Listagem de Pokémons</h1>
         </HeaderContainer>
     )
 } 

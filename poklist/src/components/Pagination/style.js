@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const NavContainer = styled.nav`
-
+  margin: 25px 0; 
   ul{
     display: flex;
 

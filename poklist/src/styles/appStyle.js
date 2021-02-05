@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import bgImage from '../assets/bg_body.png'
 
 export const Container = styled.div`
     width: 100vw;
@@ -10,5 +11,6 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    background-color: #666;
+    background: #424242 ;
+    background-image: url(${bgImage}) ;
 `
