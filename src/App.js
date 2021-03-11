@@ -8,7 +8,7 @@ import './App.scss'
 const titlepage = 'Pokedéx';
 
 function App() {
-  return (
+  return ( 
     <div className="App">
       <Helmet>
         <meta charSet="utf-8" />
