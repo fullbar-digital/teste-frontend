@@ -4,13 +4,19 @@ body{
     font-family: 'Press Start 2P', cursive;
 }
 
-
-
-
 .App{
-    margin: 0 auto;
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
 }
 
+.App > * {
+        padding: 10px;
+        flex: 1 100%;
+}
+
+/*
 @media (min-width: 768px){
     .App{
         width: 750px;
@@ -27,5 +33,4 @@ body{
     .App{
         width: 1170px;
     }
-
-}
+}*/

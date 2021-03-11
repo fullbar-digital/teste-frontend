@@ -28,7 +28,9 @@ export default class PokemonsItens extends Component {
 
         index = this.pad_with_zeroes(index, 3);
 
-        return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${index}.png`;
+        return 'https://play-lh.googleusercontent.com/EDYskRd9dnqmKfQP5KxjJHj5NgbWDiS9zceSmfYRgeDaQRQnaiRyZIQNeoX5AIIZ5VY=s180-rw';
+
+        //return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${index}.png`;
 
         //return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`
 

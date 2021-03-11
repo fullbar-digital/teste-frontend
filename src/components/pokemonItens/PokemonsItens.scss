@@ -1,8 +1,12 @@
 .pokemon-item{
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-around;
-    padding: 20px;
-    max-width: 00px;
-    box-shadow: 1px 1px 1px rgba(0,0,0, 0.2);
+        border: 1px solid gold;
+        padding: 5px;
+        //width: 200px; 
+        //height: 150px;
+        //margin-top: 10px;
+        //line-height: 150px;
+        color: red;
+        //@at-root: bold;
+        //font-size: 3em;
+        //text-align: center;
 }
