@@ -25,19 +25,38 @@ export default class FilterItens extends Component {
     render() {
        
         const pokemon = this.props.pokemon;
-        
-        return (
-            <div className="filter">
-                <div className="box">
-                <LazyLoadImage 
-                            id={pokemon.name}
-                            alt={pokemon.name}
-                            height={215}
-                            src={this.getImage(pokemon.id)} // use normal <img> attributes as props
-                            effect="blur"
-                            width={215} />
+
+        if(!pokemon){
+            return (
+                <div className="filter">
+                    <div className="box">
+                    <LazyLoadImage 
+                                id={0}
+                                alt={'?'}
+                                height={215}
+                                src={this.getImage(0)} // use normal <img> attributes as props
+                                effect="blur"
+                                width={215} />
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else{
+            return (
+                <div className="filter">
+                    <div className="box">
+                    <LazyLoadImage 
+                                id={pokemon.name}
+                                alt={pokemon.name}
+                                height={215}
+                                src={this.getImage(pokemon.id-1)} // use normal <img> attributes as props
+                                effect="blur"
+                                width={215} />
+                    </div>
+                </div>
+            )
+        }
+
+        
+        
     }
 }
