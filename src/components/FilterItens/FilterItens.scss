@@ -1,0 +1,13 @@
+.filter{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: normal;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 40%;
+    border: 1px solid blueviolet;
+    .box{
+      width: 200px;  
+    }
+  }

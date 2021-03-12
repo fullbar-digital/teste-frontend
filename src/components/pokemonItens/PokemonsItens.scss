@@ -1,7 +1,7 @@
 .pokemon-item{
         border: 1px solid gold;
         padding: 5px;
-        //width: 200px; 
+        width: 215px; 
         //height: 150px;
         //margin-top: 10px;
         //line-height: 150px;
@@ -9,4 +9,8 @@
         //@at-root: bold;
         //font-size: 3em;
         //text-align: center;
+        img{
+                width: 96px;
+        }
+
 }

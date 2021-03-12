@@ -2,17 +2,13 @@ header{
     background-color: red;
 }
 
-
 .pokemons{
   display: flex;
-  
-
   flex-flow: row wrap;
-  
-  justify-content: space-around;
-  
+  justify-content: normal;
   padding: 0;
   margin: 0;
   list-style: none;
+  width: 60%;
 }
 

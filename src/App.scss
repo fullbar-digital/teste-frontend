@@ -16,21 +16,30 @@ body{
         flex: 1 100%;
 }
 
-/*
+.main{
+    margin: 0 auto;
+    flex-direction: row;
+    display: flex;
+}
+
+
+
+
 @media (min-width: 768px){
-    .App{
-        width: 750px;
+    .main{
+        max-width: 750px;
     }
+    
 }
 
 @media (min-width: 992px){
-    .App{
-        width: 970px;
+    .main{
+        max-width: 970px;
     }
 }
 
 @media (min-width: 1200px){
-    .App{
-        width: 1170px;
+    .main{
+        max-width: 1170px;
     }
-}*/
+}
