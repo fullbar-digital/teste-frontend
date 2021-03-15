@@ -56,6 +56,7 @@ export default class PokemonsItens extends Component {
                             delayMethod={'debounce'}
                             width={96} />
                     </div>
+                    <div className={`${pokemon.name} pokemon-name center-hozintal`}>#{pokemon.url.split("/")[6]}</div>
                     <div className={`${pokemon.name} pokemon-name center-hozintal`}>{pokemon.name}</div>
                 </div>)
 

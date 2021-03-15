@@ -7,7 +7,7 @@ import axios from 'axios';
 //import ReactPaginate from 'react-paginate';
 
 import PokedexItens from './pokemonItens/PokemonsItens';
-import PokeDisplay  from './PokeDisplay/PokeDisplay';
+import PokeDisplay from './PokeDisplay/PokeDisplay';
 
 export default class Pokedex extends Component {
 
@@ -16,8 +16,9 @@ export default class Pokedex extends Component {
         urlPokemonItem: 'https://pokeapi.co/api/v2/pokemon-form/',
         pokemons: [],
         pokemon: null,
-        offset:0,
-        perpage: 5
+        offset: 0,
+        perpage: 5,
+        npokemon: 0
     }
 
     handleCallback = (childData) => {
@@ -29,7 +30,7 @@ export default class Pokedex extends Component {
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         this.getPokemons()
     }
 
@@ -48,11 +49,7 @@ export default class Pokedex extends Component {
 
         offset = (parseInt(this.state.offset, 10) + parseInt(this.state.perpage, 10));
 
-        console.log("state offset: "+this.state.offset);
-        console.log("state perpage: "+this.state.perpage);
-        console.log(offset);
-
-        this.setState({offset: offset});
+        this.setState({ offset: offset });
 
         setTimeout(() => { this.getPokemons() }, 100);
 
@@ -66,11 +63,7 @@ export default class Pokedex extends Component {
 
         offset = (parseInt(this.state.offset, 10) - parseInt(this.state.perpage, 10));
 
-        console.log("state offset: "+this.state.offset);
-        console.log("state perpage: "+this.state.perpage);
-        console.log(offset);
-
-        this.setState({offset: offset});
+        this.setState({ offset: offset });
 
         setTimeout(() => { this.getPokemons() }, 100);
 
@@ -78,9 +71,9 @@ export default class Pokedex extends Component {
 
     }
 
-    getLazy(){
+    getLazy() {
         let pokelazy = document.getElementsByClassName('poke-lazy');
-        for(var i = 0; i < pokelazy.length; i++){
+        for (var i = 0; i < pokelazy.length; i++) {
             pokelazy[i].classList.add('poke-lazy-active')
         }
     }
@@ -89,12 +82,32 @@ export default class Pokedex extends Component {
     getPokemons() {
 
         let url = this.state.url + `?offset=${this.state.offset}&limit=${this.state.perpage}`;
-        console.log(url)
         axios.get(url)
             .then(res => {
                 const pokemons = res.data['results'];
                 this.setState({ pokemons });
             })
+    }
+
+    getInicialPokemon = (event) => {
+
+        let offset;
+
+        offset = parseInt(event.target.value) - 1;
+
+        if (offset > 898) {
+            alert('Não há mais que 898 Pokémons');
+            this.setState({
+                [event.target.name]: 0
+            })
+            this.setState({ npokemon: 0 });
+
+        } else {
+            this.setState({ offset: offset, npokemon: offset });
+
+        }
+
+        setTimeout(() => { this.getPokemons() }, 100);
     }
 
     render() {
@@ -105,6 +118,11 @@ export default class Pokedex extends Component {
             <div className="main">
                 <div className="top">
                     <h2>Filtros</h2>
+                    <div>
+                        <label>
+                            Iniciar no pokémon de nº <input type="text" onBlur={this.getInicialPokemon} />
+                        </label>
+                    </div>
                     <div>
                         <label>
                             Quantos itens por vez?
@@ -120,16 +138,14 @@ export default class Pokedex extends Component {
                 </div>
                 <PokeDisplay pokemon={pokemon} ></PokeDisplay>
                 <aside className="pokemons">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <PokedexItens pokemonsItens={this.state.pokemons} parentCallback={this.handleCallback}></PokedexItens>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <PokedexItens pokemonsItens={this.state.pokemons} parentCallback={this.handleCallback}></PokedexItens>
                     </Suspense>
                 </aside>
-                
                 <footer>
-                { this.state.perpage !== 0 && this.state.offset !== 0 ? <button onClick={this.anteriorPagina}>Anterior</button> : ''}
-                { this.state.perpage !== 0 ? <button onClick={this.proximaPagina}>Próxima</button> : ''}
+                    {this.state.perpage !== 0 && this.state.offset !== 0 ? <button onClick={this.anteriorPagina}>{`Anterior`}</button> : ''}
+                    {this.state.perpage !== 0 ? <button onClick={this.proximaPagina}>{`Próxima`}</button> : ''}
                 </footer>
-                
             </div>
         )
     }

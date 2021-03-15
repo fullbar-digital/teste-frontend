@@ -20,6 +20,18 @@ footer{
   button{
     padding: 10px;
     margin: 10px;
+    background: #003A70;
+    border: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px #000;
+    outline: 0;
+    cursor: pointer;
+  }
+  button:hover{
+    margin-top: 1px;
   }
 }
 
