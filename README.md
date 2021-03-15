@@ -2,6 +2,8 @@
 
 Esse projeto a carater de estudo é feito em React 
 
+Acesse também em [https://adrianofranco.com.br/pokemon/](https://adrianofranco.com.br/pokemon/)
+
 ## Como iniciar o projeto?
 
 ### `git clone` esse repositório
