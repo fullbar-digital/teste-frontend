@@ -8,7 +8,7 @@ Esse projeto a carater de estudo é feito em React
 
 ### `cd pokedex-frontend`
 
-### Instale as dependencias `npm install`
+### Instale as dependências `npm install`
 
 ### Inicie a aplicação `npm run start`
 
