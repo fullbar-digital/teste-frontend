@@ -1,0 +1,30 @@
+
+.pokemon-item{
+        box-shadow: 1px 1px 20px 1px rgba(1, 1, 1, 0.4) inset;
+        padding: 5px;
+        width: 215px; 
+        color: red;
+        cursor: pointer;
+        background-color: #ffcb05;
+        margin-bottom: 10px;
+        .pokemon-name{
+                text-transform: capitalize;
+                text-shadow: 1px 1px 1px black;
+                margin-bottom: 10px;
+        }
+        img{
+                width: 96px;
+        }
+
+}
+
+.poke-lazy-active{
+        filter: blur(15px)!important;
+}
+
+
+@media (max-width: 460px){
+        .pokemon-item {
+            width: 100%;
+        }
+}
