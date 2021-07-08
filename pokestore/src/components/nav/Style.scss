@@ -1,0 +1,20 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: rgba(12, 55, 247, 0.199);
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+
+  .nav-content {
+    .background-nav {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 548px) {
+  .background-nav {
+    width: 200px !important;
+  }
+}
