@@ -1,40 +1,32 @@
-# Teste Frontend
-Crie uma aplicação utilizando e consumindo a pokéAPI.
-​
-## Lista de Pokémons ##
-Crie uma lista de pokémons em ordem crescente. Cada item da lista deve conter imagem, número, nome e tipo.
+# FullBar Desafio para Desenvolvedor Front-End 
 
-Deve possuir um filtro com as seguintes opções:
- - Input com número do pokémon inicial que será carregado (validação para que o número não seja maior que o número final);
- - Input com número do pokémon final que será carregado (validação para que o número não seja menor que o número inicial);
- - Select com as opções de quantos pokémons serão carregados por vez (10, 20 e 30);
- - Select com as opções de "Scroll Infinito" e "Paginação" (montar as duas opções);
- - Botão para aplicar o filtro.
- 
-Utilize LazyLoad para o carregamento das imagens.
-​
-##### Detalhe do Pokémon ###
-Ao clicar em um pokémon da lista, apresente os detalhes do mesmo. O detalhe deve conter a maior quantidade possível de informações a respeito.
-​
-#### Requisitos:
- - Utilize HTML5 + CSS3 com Flex.
- - Não utilize Bootstrap ou outros frameworks do tipo.
- - Não utilize jQuery.
- - O Layout precisa ser responsivo.
- - Descreva de forma simples no README os passos para execução do seu projeto.
- - Deixe seu repositório público para analise do Pull Request.
-​
-#### Ganha mais pontos:
- - Utilizar Vue ou React no desenvolvimento ou automação com Gulp.
- - Utilizar Sass.
- - Otimizações para aumentar a velocidade de renderização.
- - UI e UX bem pensadas e executadas.
- 
-#### Submissão
- - Criar um fork desse projeto e entregar via Pull Request.
-​
-#### Dados de acesso a api da pokéAPI
- - API: https://pokeapi.co/
- - Documentação: https://pokeapi.co/docsv2/
- 
-# Boa Sorte :)
+## `A Aplicação e Como utilizar`
+### `Utilizando npm`
+Para rodar o ambiente de desenvolvimento utilizando o **npm**, basta executar os comandos abaixo na raiz do projeto.
+
+```bash
+user@finxi:~$ npm install
+user@finxi:~$ npm install -g @vue/cli
+user@finxi:~$ npm run serve
+``` 
+Para utilizar a aplicação basta acessar `http://localhost:8080/`. 
+
+Ao rodar o primeiro comando o npm irá instalar todas as dependências necessárias que o projeto precisa para funcionar. O segundo irá instalar o cli (command language interface) que será responsável por levantar um serviço que possibilitará rodar a aplicação. O terceiro comando é syntax sugar para o seguinte comando do vue-cli `vue-cli-service serve` .
+
+
+## `Objetivo`
+Desenvolver uma aplicação Front-End utilizando os frameworks VueJs consumindo a API pública [PokeApi](https://pokeapi.co/).
+
+### `Requisitos`
+
+- [x] Utilize HTML5 + CSS3 com Flex.
+- [x] Não utilize Bootstrap ou outros frameworks do tipo.
+- [x] Não utilize jQuery.
+- [x] O Layout precisa ser responsivo.
+- [x] Descreva de forma simples no README os passos para execução do seu projeto.
+- [x] Deixe seu repositório público para analise do Pull Request.​
+- [x] Input com número do pokémon inicial que será carregado (validação para que o número não seja maior que o número final);
+- [x] Input com número do pokémon final que será carregado (validação para que o número não seja menor que o número inicial);
+- [x] Select com as opções de quantos pokémons serão carregados por vez (10, 20 e 30);
+- [x] Select com as opções de "Scroll Infinito" e "Paginação" (montar as duas opções);
+- [x] Botão para aplicar o filtro.
