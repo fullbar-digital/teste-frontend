@@ -9,6 +9,12 @@
 <script>
 export default {
   computed: {
+    de() {
+      return this.$store.state.de;
+    },
+    ate() {
+      return this.$store.state.ate;
+    },
   },
 };
 </script>
