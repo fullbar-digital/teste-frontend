@@ -1,0 +1,76 @@
+.home-view-content {
+  padding-top: 30px;
+
+  .container {
+    margin: 0px 300px;
+
+    .container-filter-button {
+      display: flex;
+      justify-content: center;
+    }
+
+    .container-pagination {
+      display: flex;
+      justify-content: center;
+
+      .pagination {
+        display: inline-block;
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+      }
+
+      .pagination a {
+        color: black;
+        float: left;
+        padding: 12px 16px;
+        text-decoration: none;
+      }
+
+      .pagination a.active {
+        color: #ef5b70;
+        border-radius: 5px;
+      }
+
+      .pagination a:hover:not(.active) {
+        background-color: #f16d7f;
+        border-radius: 5px;
+        color: #fff;
+      }
+
+    }
+
+    .container-cards {
+      display: flex;
+      justify-content: center;
+      min-height: 800px;
+
+      .container-cards-content {
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+    }
+
+  }
+
+  .setposition {
+    position: absolute;
+    bottom: 0;
+    border: 1px solid red;
+  }
+
+}
+
+@media (max-width: 1100px) {
+  .container {
+    margin: 0px 115px !important;
+  }
+}
+
+@media (max-width: 724px) {
+  .container {
+    margin: 0px 6px !important;
+  }
+}
