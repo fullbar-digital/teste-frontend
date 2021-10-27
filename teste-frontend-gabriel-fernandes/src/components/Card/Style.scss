@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap');
+
+.card {
+  margin: 20px 10px;
+  padding-bottom: 20px;
+  font-family: 'Sora', sans-serif;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  border-radius: 20px;
+  border: 9px solid rgb(199, 189, 189);
+  min-width: 300px;
+  max-width: 350px;
+}
