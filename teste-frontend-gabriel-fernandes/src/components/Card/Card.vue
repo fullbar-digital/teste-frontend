@@ -5,7 +5,7 @@
       <p>{{ itens.name }}</p>
       <div v-if="this.info">
         <img
-          class="pokemon"
+          class="image-pokemon"
           :src="
             this.$store.state.pokemon.sprites.other.dream_world.front_default
           "
