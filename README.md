@@ -1,7 +1,7 @@
 # Prova Técnica Fullbar - Dev Front-end
 
 
-Projeto não precisa ser executado para testes. Publiquei a aplicação como um subdomínio do meu sit. [Clique aqui para testar a aplicação](http://fullbarchallenger.abnersouza.dev.br)
+Projeto não precisa ser executado para testes. Publiquei a aplicação como um subdomínio do meu site. [Clique aqui para testar a aplicação](http://fullbarchallenger.abnersouza.dev.br)
 
 Aplicação desevolvida como parte do processo seletivo para o cargo de Dev Front-end PJ na FULLBAR.
 
