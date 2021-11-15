@@ -1,0 +1,39 @@
+@import "fonts";
+
+input {
+    font-family: var(--open-sans);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-14);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--p000000-87-);
+}
+
+input[type=text] {
+    border-radius: 6px;
+}
+
+input::placeholder {
+    font-family: var(--open-sans);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-14);
+    letter-spacing: var(--unnamed-character-spacing-0);
+}
+
+.p-dialog {
+    border-radius: 10px;
+}
+
+.p-button {
+    box-shadow: 0px 2px 0.5em #9CA3AF;
+}
+
+.p-button-label {
+    font-family: var(--poppins-semibold);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-600);
+    font-size: var(--unnamed-font-size-14);
+    line-height: var(--unnamed-line-spacing-21);
+    letter-spacing: var(--unnamed-character-spacing-0);
+}

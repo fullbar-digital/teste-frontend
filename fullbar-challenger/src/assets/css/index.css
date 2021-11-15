@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+
+        /* Colors: */
+        --primary: #E2B874;
+        --secondary: #152E3E;
+        --unnamed-color-ffffff: #FFFFFF;
+        --f9fafb-bg-tr-hover: #F9FAFB;
+        --edeeef-bg-button: #EDEEEF;
+        --dfe3e6-border: #DFE3E6;
+        --unnamed-color-a9b2b8: #A9B2B8;
+        --p000000-33-: #00000054;
+        --p000000-54-: #0000008a;
+        --p000000-87-: #000000de;
+        --unnamed-color-d83636: #D83636;
+        --unnamed-color-03181e: #03181E;
+        
+        /* Font/text values */
+        --open-sans: Open Sans Regular;
+        --open-sans-semibold: Open Sans SemiBold;
+        --poppins-semibold: Poppins SemiBold;
+        --poppins: Poppins Regular;
+        --arcade: Arcade Regular;
+        --digital: Digital Regular;
+        --unnamed-font-style-normal: normal;
+        --unnamed-font-weight-600: 600px;
+        --unnamed-font-weight-normal: normal;
+        --unnamed-font-size-12: 12px;
+        --unnamed-font-size-13: 13px;
+        --unnamed-font-size-14: 14px;
+        --unnamed-font-size-18: 18px;
+        --unnamed-font-size-20: 20px;
+        --unnamed-character-spacing-0: 0px;
+        --unnamed-line-spacing-18: 18px;
+        --unnamed-line-spacing-20: 20px;
+        --unnamed-line-spacing-21: 21px;
+        --unnamed-line-spacing-24: 24px;
+        --unnamed-line-spacing-27: 27px;
+    }
+}

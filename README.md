@@ -1,40 +1,73 @@
-# Teste Frontend
-Crie uma aplicação utilizando e consumindo a pokéAPI.
-​
-## Lista de Pokémons ##
-Crie uma lista de pokémons em ordem crescente. Cada item da lista deve conter imagem, número, nome e tipo.
+# Prova Técnica Fullbar - Dev Front-end
 
-Deve possuir um filtro com as seguintes opções:
- - Input com número do pokémon inicial que será carregado (validação para que o número não seja maior que o número final);
- - Input com número do pokémon final que será carregado (validação para que o número não seja menor que o número inicial);
- - Select com as opções de quantos pokémons serão carregados por vez (10, 20 e 30);
- - Select com as opções de "Scroll Infinito" e "Paginação" (montar as duas opções);
- - Botão para aplicar o filtro.
- 
-Utilize LazyLoad para o carregamento das imagens.
-​
-##### Detalhe do Pokémon ###
-Ao clicar em um pokémon da lista, apresente os detalhes do mesmo. O detalhe deve conter a maior quantidade possível de informações a respeito.
-​
-#### Requisitos:
- - Utilize HTML5 + CSS3 com Flex.
- - Não utilize Bootstrap ou outros frameworks do tipo.
- - Não utilize jQuery.
- - O Layout precisa ser responsivo.
- - Descreva de forma simples no README os passos para execução do seu projeto.
- - Deixe seu repositório público para analise do Pull Request.
-​
-#### Ganha mais pontos:
- - Utilizar Vue ou React no desenvolvimento ou automação com Gulp.
- - Utilizar Sass.
- - Otimizações para aumentar a velocidade de renderização.
- - UI e UX bem pensadas e executadas.
- 
-#### Submissão
- - Criar um fork desse projeto e entregar via Pull Request.
-​
-#### Dados de acesso a api da pokéAPI
- - API: https://pokeapi.co/
- - Documentação: https://pokeapi.co/docsv2/
- 
-# Boa Sorte :)
+
+Projeto não precisa ser executado para testes. Publiquei a aplicação como um subdomínio do meu site. [Clique aqui para testar a aplicação](http://fullbarchallenger.abnersouza.dev.br)
+
+Aplicação desevolvida como parte do processo seletivo para o cargo de Dev Front-end PJ na FULLBAR.
+
+
+## Considerações
+
+* Aplicação desenvolvida em VueJS + VueRouter;
+* Funcionalidades:
+   - [x] Lista de pokémons em ordem crescente;
+   - [x] Cada item da lista deve conter imagem, número, nome e tipo;
+   - [x] Input com número do pokémon inicial que será carregado (validação para que o número não seja maior que o número final);
+   - [x] Input com número do pokémon final que será carregado (validação para que o número não seja menor que o número inicial);
+   - [x] Select com as opções de quantos pokémons serão carregados por vez (10, 20 e 30). Obs.: Fiz com (12, 24 e 36) por questões de design;
+   - [ ] Select com as opções de "Scroll Infinito" e "Paginação" (montar as duas opções). Obs.: Fiz apenas a versão Infinite Scroll;
+   - [x] Botão para filtrar pokemon pelo nome;
+   - [x] Lazyload de Imagens.
+
+* Detalhe do Pokemon:
+   - [x] Utilizado sistema de grid com cards e efeito rotate(180º) via css. Detalhes constam no verso do card após clique.
+
+* Requisitos:
+   - [x] Utilize HTML5 e CSS3 com Flex. Obs.: Ainda adicionei grid;
+   - [x] Não utilize Bootstrap ou outros frameworks do tipo. Obs.: Utilizei Tailwind, mas só traz classes, não traz grupos de código pronto como o BS.
+   - [x] Não utilize jQuery;
+   - [x] O Layout precisa ser responsivo;
+   - [x] Descreva no README como executar seu projeto. Obs.: Projeto está publicado e não precisa ser executado. Só clicar no link acima.
+   - [x] Deixe seu repositório público para analise do Pull Request.
+
+* Ganha mais pontos:
+   - [x] Utilizar Vue, React ou automação Gulp. Obs.: Utilizei VueJS;
+   - [x] Utilizar Sass;
+   - [x] Otimizações para aumentar a velocidade de renderização; Obs.: Lazyload
+   - [ ] UI e UX bem pensadas e executadas. Obs.: Na minha opinião, sim, mas depende de avaliação.
+
+* Submissão:
+   - [x] Criar um fork desse projeto e entregar via Pull Request.
+
+
+## Códigos construídos
+
+1. Assets
+   1. Diretório src/assets/css/index.css
+   2. Diretório src/assets/scss/fonts.scss
+   3. Diretório src/assets/scss/app.scss
+
+2. Components
+   1. Diretório src/components/Pokemon.vue
+
+3. Factories
+   1. Diretório src/factories/PokeFactory.js
+
+4. Services
+   1. Diretório src/services/PokeService.js
+   
+5. Router
+   1. Diretório src/routes/index.js
+
+6. Views
+   1. Diretório src/views/Home.vue
+   2. Diretório src/views/Pokedex.vue
+
+7. App
+   1. Diretório src/App.vue
+
+8. Main
+   1. Diretório src/main.js
+
+
+# Obrigado pela Oportunidade!!! ;-)
