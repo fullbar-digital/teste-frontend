@@ -269,8 +269,8 @@ export default {
         finish: this.filters.finishId
       };
 
-      if(!this.filters.checkType && params.start){    
-        params.start = params.page > 0 ? params.start +30 : params.start;
+      if(params.start){    
+        params.start = params.page > 0 ? params.start + params.qtdPage : params.start;
       }
 
       Pokemons.pokemonList(params).then((res) => {
