@@ -39,7 +39,7 @@ import Vue from 'vue';
 import { pokemons } from '@/store';
 
 export default Vue.extend({
-	head() {
+	head(): any {
 		return {
 			title: `${this.$pokemonName} | Pokédex`,
 			bodyAttrs: {
@@ -48,7 +48,6 @@ export default Vue.extend({
 			}
 		};
 	},
-
 	computed: {
 		$pokemon() {
 			return pokemons.$single;

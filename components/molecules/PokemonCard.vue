@@ -10,7 +10,6 @@
 <script lang="ts">
 import Vue, { PropOptions } from 'vue';
 import { Pokemon } from '@/models';
-import { pokemons } from '@/store';
 
 export default Vue.extend({
 	props: {
