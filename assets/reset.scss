@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	font-family: var(--font-base);
+	font-size: var(--font-size);
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	color: hsla(var(--color-black), 1);
+	margin: 0;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-headings);
+	margin: 0;
+}
+
+ul,
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+input,
+textarea,
+select,
+button {
+	font-family: var(--font-base);
+	font-size: var(--font-size);
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	appearance: none;
+}
+
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+select {
+	appearance: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	appearance: button;
+	border: none;
+	cursor: pointer;
+}
+
+[hidden] {
+	display: none;
+}
+
+.type {
+	--color-type: var(--color-white);
+
+	background-color: hsla(var(--color-type), 1);
+}
