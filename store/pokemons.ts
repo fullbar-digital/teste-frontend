@@ -12,7 +12,7 @@ export default class Pokemons extends VuexModule {
 	}
 
 	public get $single() {
-		return this.pokemons;
+		return this.pokemon;
 	}
 
 	@Mutation
@@ -27,14 +27,14 @@ export default class Pokemons extends VuexModule {
 
 	@Action
 	public async allPokemon() {
-		const pokemons = await $axios.$get('/pokemon');
-		// console.log(pokemons);
+		const pokemons = await $axios.$get(`/pokemon`);
 		this.context.commit('SET_ALL', pokemons);
 	}
 
 	@Action
-	public async singlePokemon(id: number) {
-		const pokemon = await $axios.$get(`/pokemon/${id}`);
+	public async singlePokemon(name: string) {
+		const pokemon = await $axios.$get(`/pokemon/${name}`);
+		// console.log(pokemon);
 		this.context.commit('SET_SINGLE', pokemon);
 	}
 }
