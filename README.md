@@ -5,6 +5,7 @@ Crie uma aplicação utilizando e consumindo a pokéAPI.
 ## Como Rodar o Projeto ##
 
 -npm install
+
 -npm run serve
 
 ​
