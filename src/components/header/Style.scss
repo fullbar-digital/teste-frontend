@@ -1,0 +1,23 @@
+.header {
+    .header-content {
+      display: flex;
+      justify-content: space-around;
+      .numberPerPage {
+        align-self: center;
+      }
+      .typePagination {
+        align-self: center;
+      }
+      .numberOfItens {
+        align-self: center;
+  
+      }
+    }
+  }
+  
+  @media (max-width: 1400px) {
+    .header-content {
+      flex-direction: column;
+    }
+  }
+  

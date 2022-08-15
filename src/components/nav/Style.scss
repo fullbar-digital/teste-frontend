@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: rgb(224,203,121);
+  background: radial-gradient(circle, rgba(224,203,121,1) 0%, rgba(148,233,214,1) 100%);
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+
+  .nav-content {
+    .background-nav {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 548px) {
+  .background-nav {
+    width: 200px !important;
+  }
+}

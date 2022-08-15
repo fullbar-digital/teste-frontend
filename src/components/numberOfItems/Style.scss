@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+@mixin md-floating-label() {
+	~label {
+		color: rgba(black, .87);
+		font-size: .75rem;
+		transform: translateY(-21px);
+	}
+
+	~.ghost {
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
+form {
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+
+	.inputs {
+		display: flex;
+		align-self: center;
+
+		.md-outline {
+			// margin-bottom: 24px;
+			position: relative;
+
+			label,
+			.ghost {
+				color: #999;
+
+				font: {
+					size: 1rem;
+					weight: normal;
+				}
+
+				left: 5px;
+
+				margin: {
+					bottom: 0;
+					left: 9px;
+					top: 0;
+				}
+
+				padding: 0 4px;
+				pointer-events: none;
+				position: absolute;
+				top: 15px;
+				transition: transform .15s ease,
+				color .15s ease,
+				font-size .15s ease;
+				z-index: 2;
+			}
+
+			input {
+				appearance: none;
+				border: 1px solid #757575;
+				border-radius: 4px;
+				box-shadow: none;
+				font-size: 1rem;
+				outline: none;
+				padding: 13px 16px;
+				width: 50%;
+
+				~.ghost {
+					color: transparent;
+					font-size: .75rem;
+					top: -9px;
+					z-index: 1;
+
+					&:after {
+						background-color: #fff;
+						content: '';
+						display: block;
+						height: 4px;
+						left: 0;
+						opacity: 0;
+						position: absolute;
+						top: 7px;
+						transition: opacity .15s ease;
+						width: 100%;
+						z-index: -1;
+					}
+				}
+
+				&:focus,
+				&:valid {
+					@include md-floating-label;
+				}
+
+				&:-webkit-autofill {
+					@include md-floating-label;
+				}
+			}
+
+
+		}
+
+
+	}
+}
