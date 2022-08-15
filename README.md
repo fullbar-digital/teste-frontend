@@ -1,5 +1,12 @@
 # Teste Frontend
 Crie uma aplicação utilizando e consumindo a pokéAPI.
+
+
+## Como Rodar o Projeto ##
+
+-npm install
+-npm run serve
+
 ​
 ## Lista de Pokémons ##
 Crie uma lista de pokémons em ordem crescente. Cada item da lista deve conter imagem, número, nome e tipo.
