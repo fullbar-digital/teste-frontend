@@ -1,0 +1,50 @@
+@use "../../assets/scss/variables";
+@use "../../assets/scss/animations";
+
+/* https://codepen.io/nzbin/pen/GGrXbp */
+
+// Sempre no meio do container
+.snippet {
+  display: flex;
+  justify-content: center;
+}
+
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: variables.$font-color-medium;
+  color: variables.$font-color-medium;
+
+  // Animação
+  box-shadow: 9999px 0 0 -5px variables.$font-color-medium;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+
+  &::after,
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: variables.$font-color-medium;
+    color: variables.$font-color-medium;
+  }
+
+  // Animação
+  &::after {
+    box-shadow: 10014px 0 0 -5px variables.$font-color-medium;
+    animation: dotPulseAfter 1.5s infinite linear;
+    animation-delay: 0.5s;
+  }
+  &::before {
+    box-shadow: 9984px 0 0 -5px variables.$font-color-medium;
+    animation: dotPulseBefore 1.5s infinite linear;
+    animation-delay: 0s;
+  }
+}
