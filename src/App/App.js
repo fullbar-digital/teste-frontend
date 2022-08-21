@@ -1,9 +1,11 @@
-import '../assets/scss/style';
+import "../assets/scss/style";
+import { Pokedex, Footer } from "../components/components";
 
 function App() {
   return (
     <>
-      <h1>Sou o app!</h1>
+      <Pokedex />
+      <Footer />
     </>
   );
 }
