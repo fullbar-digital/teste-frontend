@@ -1,0 +1,44 @@
+@use "../../assets/scss/animations";
+@use "../../assets/scss/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+  
+  &:hover {
+    cursor: pointer;
+    animation: upDown 0.4s;
+  }
+
+  // Imagem do card
+  img {
+    background-color: variables.$neutral-color-2;
+    border-radius: 5px;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
+
+    &__id {
+      text-align: start;
+      text-transform: capitalize;
+      color: variables.$secondary-color-2;
+    }
+
+    &__name {
+      font-family: "font-bold";
+      font-size: 2rem;
+      text-transform: capitalize;
+    }
+
+    &__abilities {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}
