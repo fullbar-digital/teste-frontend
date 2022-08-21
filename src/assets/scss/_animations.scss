@@ -40,3 +40,12 @@
   }
 }
 // End dot Loading
+
+@keyframes upDown {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
