@@ -16,14 +16,6 @@ export const Pokedex = () => {
     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
   };
 
-  // Função que trata os ids do pokemon
-  // Retorna como string é min. 3 números
-  function minThreeNums(id) {
-    let numberPokemon = id.toString();
-    while (numberPokemon.length < 3) numberPokemon = "0" + numberPokemon;
-    return numberPokemon;
-  }
-
   useEffect(() => {
     // Requisição dos pokemons
     fetch(urlPokedex)
