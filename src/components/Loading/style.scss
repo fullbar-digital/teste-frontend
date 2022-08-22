@@ -42,6 +42,7 @@
     animation: dotPulseAfter 1.5s infinite linear;
     animation-delay: 0.5s;
   }
+
   &::before {
     box-shadow: 9984px 0 0 -5px variables.$font-color-medium;
     animation: dotPulseBefore 1.5s infinite linear;
