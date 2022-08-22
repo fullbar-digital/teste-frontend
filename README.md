@@ -45,3 +45,9 @@ Deve possuir um filtro com as seguintes opções:
  - [x] O Layout precisa ser responsivo.
  - [x] Descreva de forma simples no README os passos para execução do seu projeto.
  - [x] Deixe seu repositório público para analise do Pull Request.
+​
+#### Ganha mais pontos:
+ - [x] Utilizar Vue ou React no desenvolvimento ou automação com Gulp.
+ - [x] Utilizar Sass.
+ - [x] Otimizações para aumentar a velocidade de renderização.
+ - [x] UI e UX bem pensadas e executadas.
