@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import functions from "../../assets/script/functions";
-import { Header, Loading, Card, Modal } from "../components";
+import { Header, Loading, Card, Modal, Info } from "../components";
 import "./style.scss";
 
 export const Pokedex = () => {
@@ -44,14 +44,12 @@ export const Pokedex = () => {
       >
         {pokemons.map((pokemon, index) => {
           index = index + 1; // Rota da pokedex não possui valor 0
-          const { name, url } = pokemon; // Nome do pokemon e url para informações detalhadas
           return (
             <li key={index}>
               <Card
-                url={url}
-                id={minThreeNums(index)}
-                name={name}
-                img={imgPokemon(minThreeNums(index))}
+                id={index}
+                img={imgPokemon(functions.minThreeNums(index))}
+                func={openModal}
               />
             </li>
           );
@@ -72,7 +70,9 @@ export const Pokedex = () => {
   return (
     <>
       {modalIsVisible && (
-        <Modal title={details.name} closeFunc={() => closeModal()} />
+        <Modal title={details.name} closeFunc={() => closeModal()}>
+          <Info details={details} />
+        </Modal>
       )}
       <main id="pokedex" className="container">
         <Header title={"Pokédex"} />
