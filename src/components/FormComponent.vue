@@ -30,7 +30,9 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btnFilter" @click="applyFilter()">Apply Filter</button> <button type="button" class="btn btnReset" @click="refreshPage">Reset</button>
+            <button type="button" class="btn btnFilter" @click="applyFilter()">Apply Filter</button> 
+            <span id="appliedFilter" :class="{dInlineBlock: appliedFilter}">Successfully applied</span>
+            <button type="button" class="btn btnReset" @click="refreshPage">Reset</button>
         </div>
     </div>
 </template>
@@ -42,6 +44,8 @@
             return {
                 // filters
                 filters: [],
+                // filter alert
+                appliedFilter: false,
                 // filter obj per page 
                 objPerPage: 10,
                 // filter pagination or infinite scroll
@@ -56,6 +60,12 @@
                 window.location.reload();
             },
             applyFilter() {
+                // add alert filter applied successful
+                this.appliedFilter = true
+                setTimeout(() => {
+                    this.appliedFilter = false
+                }, 2000);
+
                 this.filters = []
                 this.filters.push({objPerPage: this.objPerPage, scrollPagination: this.scrollPagination, fromNumber: this.fromNumber, toNumber: this.toNumber})
                 this.$emit("filter", this.filters)
@@ -75,6 +85,17 @@
     input { outline: none; border: none; background-color: $bg-sec-color; font-size: 1.2em; border-radius: 5px; } // all input
 
     button, select { border: none; &:hover { cursor: pointer; opacity: .7; } } // all button / select
+
+    #appliedFilter {
+        display: none !important;
+        padding: 5px;
+        font-weight: bold;
+        color: $green;
+
+        &.dInlineBlock {
+            display: inline-block !important;
+        }
+    }
 
     // filter form
     .filterForm {
