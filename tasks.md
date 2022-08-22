@@ -12,3 +12,5 @@ animacoes
     rodar o icon
 filtros
     inputs
+
+routes: ?offset=20&limit=10 // limita pokemons
