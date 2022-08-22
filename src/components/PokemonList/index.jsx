@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Header, Loading, Card } from "../components";
+import { Header, Loading, Card, Modal } from "../components";
 import "./style.scss";
 
 export const Pokedex = () => {
+  const [details, setDetails] = useState({});
   const [pokemons, setPokemons] = useState([]); // Lista dos pokemons
   const [loading, setLoading] = useState(true); // Variável condicional que mostra o loading enquanto há requisição
+  const [modalIsVisible, setModalIsVisible] = useState(false); // Variável condicional que mostra o loading enquanto há requisição
 
   // API Pokemon
   const urlPokedex = "https://pokeapi.co/api/v2/pokemon/";
@@ -57,8 +59,20 @@ export const Pokedex = () => {
     );
   }
 
+  const openModal = (obj) => {
+    setDetails(obj); // Objeto com os detalhes do Pokemon
+    setModalIsVisible(true); // Deixa a Modal visivel
+  };
+
+  const closeModal = () => {
+    setModalIsVisible(false); // Fecha a modal
+  };
+
   return (
     <>
+      {modalIsVisible && (
+        <Modal title={details.name} closeFunc={() => closeModal()} />
+      )}
       <main id="pokedex" className="container">
         <Header title={"Pokédex"} />
         {loading ? <Loading /> : renderPokedex()}
