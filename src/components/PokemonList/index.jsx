@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import functions from "../../assets/script/functions";
 import { Header, Loading, Card, Modal } from "../components";
 import "./style.scss";
 

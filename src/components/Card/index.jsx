@@ -1,4 +1,5 @@
 import "./style.scss";
+import { functions, app } from "../../assets/script/scripts";
 
 export const Card = ({ url, id, name, img }) => {
   return (
