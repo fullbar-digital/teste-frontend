@@ -4,7 +4,7 @@ import { app } from '../../assets/script/scripts'
 import "./style.scss";
 
 export const Pokedex = () => {
-  const [details, setDetails] = useState({});
+  const [details, setDetails] = useState({}); // Variável que retorna os detalhes do Pokemon clicado
   const [pokemons, setPokemons] = useState([]); // Lista dos pokemons
   const [loading, setLoading] = useState(true); // Variável condicional que mostra o loading enquanto há requisição
   const [modalIsVisible, setModalIsVisible] = useState(false); // Variável condicional que mostra o loading enquanto há requisição
@@ -55,11 +55,13 @@ export const Pokedex = () => {
     );
   }
 
+  // Abre o componente Modal
   const openModal = (obj) => {
     setDetails(obj); // Objeto com os detalhes do Pokemon
     setModalIsVisible(true); // Deixa a Modal visivel
   };
 
+  // Fecha o componente Modal
   const closeModal = () => {
     setModalIsVisible(false); // Fecha a modal
   };
