@@ -4,7 +4,7 @@ import "./style.scss";
 export const Filter = ({ filters }) => {
 
   // Valores default para primeira rendirização
-  const defaultStaticValues = {render: 'scroll', quantity: '10'} 
+  const defaultStaticValues = {render: 'pagination', quantity: '10'} 
   const defaultFormValues = {from: '1'}
 
   // A diferença entre o valor estático e o dinâmico 
@@ -67,8 +67,8 @@ export const Filter = ({ filters }) => {
             */}
           <div className="filter__rigth">
             <select name="render" onChange={handleChangeValues}>
-              <option value="scroll">Scroll infinito</option>
               <option value="pagination">Paginação</option>
+              <option value="scroll">Scroll infinito</option>
             </select>
             <select name="quantity" onChange={handleChangeValues}>
               <option value="10">Exibir 10 resultados</option>
