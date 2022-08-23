@@ -44,8 +44,7 @@ export const Pokedex = () => {
           return (
             <li key={index}>
               <Card
-                id={index}
-                img={imgPokemon(functions.minThreeNums(index))}
+                urlPokemon={pokemon.url}
                 func={openModal}
               />
             </li>

@@ -2,20 +2,20 @@ import "./style.scss";
 import { functions, app } from "../../assets/script/scripts";
 import { useEffect, useState } from "react";
 
-export const Card = ({ id, img, func }) => {
+export const Card = ({ urlPokemon, func }) => {
   const [infoPokemon, setInfoPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Requisição detalhes do pokemon
-    fetch(app.urlPokemonDetails(id))
+    // Requisição detalhes do Pokemon
+    fetch(urlPokemon)
       .then((response) => response.json())
       .then((data) => setInfoPokemon(data))
       .catch((error) => console.log(error))
       .finally(() => {
         setLoading(false);
       });
-  }, [id]);
+  }, [urlPokemon]);
 
   // Mostra o tipo do Pokemon
   function renderAbilities() {
@@ -34,17 +34,18 @@ export const Card = ({ id, img, func }) => {
     weight: infoPokemon.weight,
     stats: infoPokemon.stats,
     base_experience: infoPokemon.base_experience,
-    img: img,
+    // Possui condicional, pois antes da requisição o valor é setado como undefined
+    img: infoPokemon.id && app.imgPokemon(functions.minThreeNums(infoPokemon.id))
   };
 
   return (
     <>
       {!loading && (
         <div onClick={() => func(obj)} className="card">
-          <img src={img} alt={`Imagem do pokemon ${infoPokemon.name}`} />
+          <img src={app.imgPokemon(functions.minThreeNums(infoPokemon.id))} alt={`Imagem do pokemon ${infoPokemon.name}`} />
           <div className="card__information">
             <span className="card__information__id">
-              nº {functions.minThreeNums(id)}
+              nº {functions.minThreeNums(infoPokemon.id)}
             </span>
             <span className="card__information__name">{infoPokemon.name}</span>
             <ul className="card__information__abilities">
