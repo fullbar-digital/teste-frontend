@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import functions from "../../assets/script/functions";
+import { Header, Loading, Card, Modal, Info, Filter } from "../components";
 import { Header, Loading, Card, Modal, Info } from "../components";
 import "./style.scss";
 
@@ -8,24 +8,29 @@ export const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]); // Lista dos pokemons
   const [loading, setLoading] = useState(true); // Variável condicional que mostra o loading enquanto há requisição
   const [modalIsVisible, setModalIsVisible] = useState(false); // Variável condicional que mostra o loading enquanto há requisição
+  const [filters, setFilters] = useState({}) // Valores dinâmicos
+  const [staticFilters, setStaticFilters] = useState({}) // Valores estáticos
 
-  // API Pokemon
-  const urlPokedex = "https://pokeapi.co/api/v2/pokemon/";
-  // API das imagens dos Pokemons
-  const imgPokemon = function (id) {
-    return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
-  };
+  // Função que seta os valores estáticos e dinâmicos
+  // Essa função é utilizada para adquirir dados do componente Filter
+  const dataFilter = (obj) => {
+    if (!obj) return console.log('Erro na função dataFilter')
+    if('quantity' in obj) return setStaticFilters(obj)
+    setFilters(obj)
+  }
 
   useEffect(() => {
     // Requisição dos pokemons
     fetch(urlPokedex)
       .then((response) => response.json())
-      .then((data) => setPokemons(data.results))
+      .then((data) => {
+        setPokemons(data.results)
+      })
       .catch((error) => console.log(error))
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [filters.from, staticFilters.quantity]);
 
   // Renderiza a lista de Pokemons - Pokédex
   function renderPokedex() {
@@ -68,6 +73,7 @@ export const Pokedex = () => {
       )}
       <main id="pokedex" className="container">
         <Header title={"Pokédex"} />
+        <Filter filters={dataFilter} />
         {loading ? <Loading /> : renderPokedex()}
       </main>
     </>
