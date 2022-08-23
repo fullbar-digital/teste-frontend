@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Header, Loading, Card, Modal, Info, Filter } from "../components";
-import { Header, Loading, Card, Modal, Info } from "../components";
+import { app } from '../../assets/script/scripts'
 import "./style.scss";
 
 export const Pokedex = () => {
@@ -21,7 +21,7 @@ export const Pokedex = () => {
 
   useEffect(() => {
     // Requisição dos pokemons
-    fetch(urlPokedex)
+    fetch(app.urlPokedex(filters.from, staticFilters.quantity))
       .then((response) => response.json())
       .then((data) => {
         setPokemons(data.results)
