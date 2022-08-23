@@ -27,7 +27,6 @@ export const Pokedex = () => {
       .then((response) => response.json())
       .then((data) => {
         const { results, next, previous } = data
-        console.log(data)
         setPokemons(results)
         setPages({next: next, previous: previous})
       })
@@ -46,7 +45,6 @@ export const Pokedex = () => {
     return (
       <ul
         className="pokedex__list"
-        style={{ minHeight: loading ? "200px" : "auto" }}
       >
         {pokemons.map((pokemon, index) => {
           index = index + 1; // Rota da pokedex não possui valor 0
@@ -95,8 +93,12 @@ export const Pokedex = () => {
       <main id="pokedex" className="container">
         <Header title={"Pokédex"} />
         <Filter filters={dataFilter} />
-        {loading ? <Loading /> : renderPokedex()}
-        <GroupBtn/>
+        {loading ? <Loading />
+          :
+          <>
+            {renderPokedex()}
+            <GroupBtn />
+          </>}
       </main>
     </>
   );

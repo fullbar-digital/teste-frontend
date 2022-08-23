@@ -7,7 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 32px 24px;
-
+    min-height: 90vh;
     li {
       list-style: none;
       flex: 1 0 18%;

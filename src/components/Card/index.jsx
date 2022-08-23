@@ -43,7 +43,7 @@ export const Card = ({ urlPokemon, func }) => {
     <>
       {!loading && (
         <div onClick={() => func(obj)} className="card">
-          <Image parentHeight={'215px'} src={app.imgPokemon(functions.minThreeNums(infoPokemon.id))} alt={`Imagem do pokemon ${infoPokemon.name}`} />
+          <Image parentHeight={'215px'} width={'100%'} height={'100%'} src={app.imgPokemon(functions.minThreeNums(infoPokemon.id))} alt={`Imagem do pokemon ${infoPokemon.name}`} />
           <div className="card__information">
             <span className="card__information__id">
               nº {functions.minThreeNums(infoPokemon.id)}
