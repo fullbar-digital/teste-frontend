@@ -13,4 +13,9 @@
       flex: 1 0 18%;
     }
   }
+  .group-btn__container{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
 }

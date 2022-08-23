@@ -10,6 +10,7 @@ export const Pokedex = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false); // Variável condicional que mostra o loading enquanto há requisição
   const [filters, setFilters] = useState({}) // Valores dinâmicos
   const [staticFilters, setStaticFilters] = useState({}) // Valores estáticos
+  const [pages, setPages] = useState({})
 
   // Função que seta os valores estáticos e dinâmicos
   // Essa função é utilizada para adquirir dados do componente Filter
@@ -19,17 +20,25 @@ export const Pokedex = () => {
     setFilters(obj)
   }
 
-  useEffect(() => {
+  const getAswer = (url = app.urlPokedex(filters.from, staticFilters.quantity)) => {
     // Requisição dos pokemons
-    fetch(app.urlPokedex(filters.from, staticFilters.quantity))
+    setLoading(true)
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setPokemons(data.results)
+        const { results, next, previous } = data
+        console.log(data)
+        setPokemons(results)
+        setPages({next: next, previous: previous})
       })
       .catch((error) => console.log(error))
       .finally(() => {
         setLoading(false);
       });
+  }
+  
+  useEffect(() => {
+    getAswer()
   }, [filters.from, staticFilters.quantity]);
 
   // Renderiza a lista de Pokemons - Pokédex
@@ -65,6 +74,17 @@ export const Pokedex = () => {
     setModalIsVisible(false); // Fecha a modal
   };
 
+  const GroupBtn = () => {
+    return (
+      <>
+        <div className="group-btn__container">
+          <button onClick={() => {getAswer(pages.previous)}} disabled={pages.previous === null} >anterior</button>
+          <button onClick={() => {getAswer(pages.next)}} disabled={!pages.next === null} >depois</button>
+        </div>
+      </>
+    )
+  }
+
   return (
     <>
       {modalIsVisible && (
@@ -76,6 +96,7 @@ export const Pokedex = () => {
         <Header title={"Pokédex"} />
         <Filter filters={dataFilter} />
         {loading ? <Loading /> : renderPokedex()}
+        <GroupBtn/>
       </main>
     </>
   );
