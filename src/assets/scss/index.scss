@@ -1,0 +1,25 @@
+@use './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'font-medium';
+    color: variables.$font-color-medium;
+}
+
+// Fonts da aplicacao
+@font-face {
+  font-family: 'font-medium';
+  src: url('../fonts/SignikaNegative-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'font-bold';
+  src: url('../fonts/SignikaNegative-Bold.ttf');
+}
+
+body {
+    scroll-behavior: smooth;
+    height: 100vh;
+}

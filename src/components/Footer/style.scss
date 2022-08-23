@@ -1,0 +1,13 @@
+@use "../../assets/scss/variables";
+
+#footer {
+  background-color: variables.$font-color-medium;
+  margin-top: 56px;
+  .footer__area {
+    color: variables.$neutral-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 62px;
+  }
+} 

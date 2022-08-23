@@ -1,0 +1,12 @@
+.filter{
+    &__form{
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+    }
+    &__left, &__rigth {
+        display: flex;
+        gap: 16px;
+        margin-top: 24px;
+    }
+}

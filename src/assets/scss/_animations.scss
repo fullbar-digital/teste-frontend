@@ -1,0 +1,60 @@
+@use "./variables";
+
+// Start dot Loading
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px variables.$font-color-medium;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px variables.$font-color-medium;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px variables.$font-color-medium;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px variables.$font-color-medium;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px variables.$font-color-medium;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px variables.$font-color-medium;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px variables.$font-color-medium;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px variables.$font-color-medium;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px variables.$font-color-medium;
+  }
+}
+// End dot Loading
+
+@keyframes upDown {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

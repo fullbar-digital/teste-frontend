@@ -1,0 +1,49 @@
+@use "../../assets/scss/variables";
+
+.details {
+  &__top {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 56px;
+    &__img {
+      width: 250px;
+    }
+    &__aside {
+      width: 300px;
+      background-color: rgb(48, 167, 215);
+      border-radius: 10px;
+      padding: 16px;
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        gap: 16px;
+        li {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          font-size: 1.3rem;
+          list-style: none;
+          color: variables.$neutral-color;
+          span {
+            font-size: 1.5rem;
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    table {
+      border-collapse: collapse;
+      th,
+      tr {
+        text-transform: capitalize;
+        padding: 8px 24px;
+      }
+    }
+  }
+}
