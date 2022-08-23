@@ -1,3 +1,4 @@
+import { Image } from "../Image";
 import "./style.scss";
 
 export const Info = ({ details = {} }) => {
@@ -30,7 +31,8 @@ export const Info = ({ details = {} }) => {
       <section id="details">
         <div className="details__top">
           <picture className="details__top__img">
-            <img
+            <Image
+              parentHeight={'274px'}
               src={details.img}
               width={"100%"}
               height={"100%"}

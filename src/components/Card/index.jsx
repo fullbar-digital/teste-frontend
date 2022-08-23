@@ -1,6 +1,7 @@
 import "./style.scss";
 import { functions, app } from "../../assets/script/scripts";
 import { useEffect, useState } from "react";
+import { Image } from "../Image";
 
 export const Card = ({ urlPokemon, func }) => {
   const [infoPokemon, setInfoPokemon] = useState([]);
@@ -42,7 +43,7 @@ export const Card = ({ urlPokemon, func }) => {
     <>
       {!loading && (
         <div onClick={() => func(obj)} className="card">
-          <img src={app.imgPokemon(functions.minThreeNums(infoPokemon.id))} alt={`Imagem do pokemon ${infoPokemon.name}`} />
+          <Image parentHeight={'215px'} src={app.imgPokemon(functions.minThreeNums(infoPokemon.id))} alt={`Imagem do pokemon ${infoPokemon.name}`} />
           <div className="card__information">
             <span className="card__information__id">
               nº {functions.minThreeNums(infoPokemon.id)}
