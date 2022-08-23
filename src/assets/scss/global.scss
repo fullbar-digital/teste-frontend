@@ -1,7 +1,81 @@
+@use '../scss/variables';
+
 // Classes globais
 
 .font-bold {
     font-family: 'font-bold';
+}
+
+.fire, .water, .bug, .poison, .fighting, .psychic, .rock, .ghost {
+    color: variables.$neutral-color;   
+}
+
+.fire {
+    background-color: variables.$fire-color
+}
+
+.water {
+    background-color: variables.$water-color
+}
+
+.bug {
+    background-color: variables.$bug-color
+}
+
+.flying {
+    background-image: variables.$flying-color
+}
+
+.grass {
+    background-color: variables.$grass-color
+}
+
+.poison {
+    background-color: variables.$poison-color
+}
+
+.normal {
+    background-color: variables.$normal-color
+}
+
+.electric {
+    background-color: variables.$electric-color
+}
+
+.ground {
+    background-image: variables.$ground-color
+}
+
+.fairy {
+    background-color: variables.$fairy-color
+}
+
+.fighting {
+    background-color: variables.$fighting-color
+}
+
+.psychic {
+    background-color: variables.$psychic-color
+}
+
+.rock {
+    background-color: variables.$rock-color
+}
+
+.steel {
+    background-color: variables.$steel-color
+}
+
+.ghost {
+    background-color: variables.$ghost-color
+}
+
+.ice {
+    background-color: variables.$ice-color;
+}
+
+.dragon {
+    background-image: variables.$dragon-color;
 }
 
 @media (min-width: 1400px) {
