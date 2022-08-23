@@ -39,6 +39,13 @@
     &__abilities {
       display: flex;
       gap: 8px;
+      &-each{
+        max-width: 100px;
+        padding: 4px 0;
+        text-align: center;
+        border-radius: 3px;
+        text-transform: capitalize;
+      }
     }
   }
 }

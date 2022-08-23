@@ -22,7 +22,7 @@ export const Card = ({ urlPokemon, func }) => {
   function renderAbilities() {
     return infoPokemon.types.map((res, index) => {
       const { name } = res.type;
-      return <li key={index}>{name}</li>;
+      return <li key={index} className={`card__information__abilities-each ${name}`}>{name}</li>;
     });
   }
 
