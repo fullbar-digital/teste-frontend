@@ -49,3 +49,12 @@
     transform: translateY(0);
   }
 }
+
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
