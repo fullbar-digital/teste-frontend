@@ -50,7 +50,7 @@ export const Filter = ({ filters }) => {
 
   return (
     <>
-      <section id="filter">
+      <section className="filter">
         <h4 className="filter__title">PokeId</h4>
         <form onSubmit={handleSubmit} className="filter__form">
           {/* Lado esquerdo
