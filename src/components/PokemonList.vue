@@ -92,12 +92,12 @@
         filter(newFilter) {
             // filter from a number to a number
             if(newFilter[0].fromNumber == null) { // if the input is null
-                // alert('nenhum numero selecionado')
+                // alert('all input is null')
             }else {
                 if(newFilter[0].toNumber == null) { // if the input is null
-                    alert('segundo item vazio')
+                    alert('second input is null')
                 }else if(newFilter[0].fromNumber > newFilter[0].toNumber) { // if the second input is less than the first
-                    alert('segundo item menor que o primeiro')
+                    alert('second item is less than the first')
                 }else {
                     newFilter[0].scrollPagination = 'pagination'
                     
