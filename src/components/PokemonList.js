@@ -19,6 +19,7 @@ const PokemonList = () => {
         const pokemonPromises = results.map(pokemon =>
           axios.get(pokemon.url).then(responseDetail => responseDetail.data),
         );
+
         Promise.all(pokemonPromises)
           .then(pokemonDataList => {
             setPokemonList(prevPokemonList => [
@@ -34,8 +35,8 @@ const PokemonList = () => {
   }, []);
 
   useEffect(() => {
-    loadPokemonList('https://pokeapi.co/api/v2/pokemon?limit=1118');
-  }, []);
+    loadPokemonList('https://pokeapi.co/api/v2/pokemon?limit=18');
+  }, [loadPokemonList]);
 
   useEffect(() => {
     if (isLoading || !nextUrl) {
@@ -78,7 +79,6 @@ const PokemonList = () => {
             loading="lazy"
           />
           <Link to={`/pokemon/${pokemon.name}`}>
-            console.log(pokemon.name)
             <Typography variant="h6" component="p">
               {`#${pokemon.id} - ${pokemon.name}`}
             </Typography>
@@ -97,6 +97,7 @@ const PokemonList = () => {
           </Typography>
         )}
       </Grid>
+      {nextUrl}
     </Grid>
   );
 };
