@@ -14,6 +14,7 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 import LazyLoad from 'react-lazyload';
 import PokemonFilter from './PokemonFilter';
+import '../fonts/fonts.css';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -123,9 +124,9 @@ const PokemonList = () => {
           variant="h4"
           component="h1"
           align="center"
-          sx={{ mb: 1, mt: 1 }}
+          sx={{ mb: 5, mt: 1, fontFamily: 'Pokemon' }}
         >
-          Pokémon List
+          The Ultimate Pokémon List
         </Typography>
         <Grid item xs={12}>
           <PokemonFilter onFilterChange={handleFilterChange} />
@@ -135,6 +136,15 @@ const PokemonList = () => {
         <Grid item xs={12} sm={6} md={4} key={uuidv4()}>
           <Card>
             <CardActionArea component={Link} to={`/pokemon/${pokemon.name}`}>
+              <Typography
+                gutterBottom
+                variant="h6"
+                component="h2"
+                ml={2}
+                mt={2}
+              >
+                #{pokemon.id}
+              </Typography>
               <LazyLoad height={250} once>
                 <CardMedia
                   component="img"
@@ -144,8 +154,8 @@ const PokemonList = () => {
                 />
               </LazyLoad>
               <CardContent>
-                <Typography gutterBottom variant="h6" component="h2">
-                  #{pokemon.id} - {pokemon.name}
+                <Typography gutterBottom variant="h5" component="h2">
+                  {pokemon.name}
                 </Typography>
                 {pokemon.types && (
                   <Typography variant="body1" component="p">

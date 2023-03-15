@@ -47,14 +47,14 @@ const PokemonFilter = ({ onFilterChange }) => {
   });
   return (
     <Box component="form" onSubmit={formik.handleSubmit}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justifyContent="center">
         <Grid item xs={12} sm={6} md={3} lg={3}>
           <TextField
             fullWidth
             id="initialPokemon"
             name="initialPokemon"
-            label="Pokémon Inicial"
-            type="number"
+            label="Inicial"
+            type="tel"
             value={formik.values.initialPokemon}
             onChange={formik.handleChange}
             error={
@@ -71,8 +71,8 @@ const PokemonFilter = ({ onFilterChange }) => {
             fullWidth
             id="finalPokemon"
             name="finalPokemon"
-            label="Pokémon Final"
-            type="number"
+            label="Final"
+            type="tel"
             value={formik.values.finalPokemon}
             onChange={formik.handleChange}
             error={
@@ -85,13 +85,31 @@ const PokemonFilter = ({ onFilterChange }) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={3}>
           <FormControl fullWidth>
-            <InputLabel id="paginationType-label">Tipo de Paginação</InputLabel>
+            <InputLabel id="perPage-label">Por Página</InputLabel>
+            <Select
+              labelId="perPage-label"
+              id="perPage"
+              name="perPage"
+              value={formik.values.perPage}
+              label="Pokémons por página"
+              onChange={formik.handleChange}
+            >
+              <MenuItem value={20}>20</MenuItem>
+              <MenuItem value={30}>30</MenuItem>
+              <MenuItem value={40}>40</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={3} lg={3}>
+          <FormControl fullWidth>
+            <InputLabel id="paginationType-label">Paginação</InputLabel>
             <Select
               labelId="paginationType-label"
               id="paginationType"
               name="paginationType"
               value={formik.values.paginationType}
-              label="Tipo de Paginação"
+              label="Paginação"
               onChange={formik.handleChange}
             >
               <MenuItem value="infinite-scroll">Infinite Scroll</MenuItem>
@@ -101,7 +119,7 @@ const PokemonFilter = ({ onFilterChange }) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3} lg={3}>
           <Button fullWidth color="primary" variant="contained" type="submit">
-            Aplicar Filtro
+            Aplicar
           </Button>
         </Grid>
       </Grid>
