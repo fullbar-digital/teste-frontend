@@ -32,6 +32,8 @@ const PokemonDetail = () => {
 
   const { id, height, weight, types, abilities, stats } = pokemonData;
 
+  const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
@@ -46,7 +48,7 @@ const PokemonDetail = () => {
         <Card sx={{ minWidth: 275 }}>
           <CardContent>
             <Typography variant="h4" component="h1" align="center">
-              {`${name}`}
+              {`${capitalize(name)}`}
             </Typography>
             <Typography variant="h5" component="h2">
               Details:
