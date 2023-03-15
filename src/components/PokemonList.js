@@ -76,14 +76,11 @@ const PokemonList = () => {
     setPokemonList([]);
     setNextUrl('');
     setIsLoading(false);
+
     loadPokemonList(
       `https://pokeapi.co/api/v2/pokemon?limit=${filter.perPage}&offset=0`,
     );
   }, [filter, loadPokemonList]);
-
-  useEffect(() => {
-    loadPokemonList();
-  }, [loadPokemonList]);
 
   useEffect(() => {
     if (!isLoading || !document.querySelector('#observer')) {

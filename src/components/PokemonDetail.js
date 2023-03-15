@@ -45,13 +45,17 @@ const PokemonDetail = () => {
   return (
     <Paper elevation={3}>
       <Grid container spacing={2} justifyContent="center">
-        <Grid item xs={12} md={8} justifyContent="center">
+        <Grid item xs={10} justifyContent="center">
+          <Typography variant="h3" component="h1" align="center">
+            #{id} {`${capitalize(name)}`}
+          </Typography>
           <Box display="flex" justifyContent="center">
             <CardMedia
               component="img"
               height="auto"
-              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
               alt={name}
+              sx={{ objectFit: 'contain' }}
             />
           </Box>
         </Grid>
@@ -63,11 +67,6 @@ const PokemonDetail = () => {
           >
             <CardContent>
               <Grid container spacing={2} justifyContent="center">
-                <Grid item xs={12} md={12}>
-                  <Typography variant="h3" component="h1" align="center">
-                    {`${capitalize(name)}`}
-                  </Typography>
-                </Grid>
                 <Grid item md={6}>
                   <Typography
                     variant="h4"
