@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import {
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Box,
+  Paper,
+} from '@mui/material';
 
 const PokemonDetail = () => {
   const name = window.location.pathname.split('/')[2];
@@ -35,51 +43,85 @@ const PokemonDetail = () => {
   const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={4}>
-        <CardMedia
-          component="img"
-          height="auto"
-          image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-          alt={name}
-        />
+    <Paper elevation={3}>
+      <Grid container spacing={2} justifyContent="center">
+        <Grid item xs={12} md={8} justifyContent="center">
+          <Box display="flex" justifyContent="center">
+            <CardMedia
+              component="img"
+              height="auto"
+              image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+              alt={name}
+            />
+          </Box>
+        </Grid>
+        <Grid item md={12}>
+          <Card
+            sx={{
+              minWidth: 275,
+            }}
+          >
+            <CardContent>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item xs={12} md={12}>
+                  <Typography variant="h3" component="h1" align="center">
+                    {`${capitalize(name)}`}
+                  </Typography>
+                </Grid>
+                <Grid item md={6}>
+                  <Typography
+                    variant="h4"
+                    component="h2"
+                    mb={2}
+                    justifyContent="center"
+                  >
+                    Details
+                  </Typography>
+
+                  <Typography variant="body1" component="p" mb={1}>
+                    Height: {height}
+                  </Typography>
+
+                  <Typography variant="body1" component="p" mb={1}>
+                    Weight: {weight}
+                  </Typography>
+
+                  <Typography variant="body1" component="p" mb={1}>
+                    Types: {types.map(type => type.type.name).join(', ')}
+                  </Typography>
+
+                  <Typography variant="body1" component="p" mb={1}>
+                    Abilities:{' '}
+                    {abilities.map(ability => ability.ability.name).join(', ')}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography
+                    variant="h4"
+                    component="h2"
+                    mb={2}
+                    justifyContent="center"
+                  >
+                    Stats
+                  </Typography>
+
+                  {stats.map(stat => (
+                    <Typography
+                      variant="body1"
+                      component="p"
+                      key={stat.stat.name}
+                      mb={1}
+                    >
+                      {stat.stat.name}: {stat.base_stat}
+                    </Typography>
+                  ))}
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
-      <Grid item xs={12} md={8}>
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography variant="h4" component="h1" align="center">
-              {`${capitalize(name)}`}
-            </Typography>
-            <Typography variant="h5" component="h2">
-              Details:
-            </Typography>
-            <Typography variant="body1" component="p">
-              Height: {height}
-            </Typography>
-            <Typography variant="body1" component="p">
-              Weight: {weight}
-            </Typography>
-            <Typography variant="body1" component="p">
-              Types: {types.map(type => type.type.name).join(', ')}
-            </Typography>
-            <Typography variant="body1" component="p">
-              Abilities:{' '}
-              {abilities.map(ability => ability.ability.name).join(', ')}
-            </Typography>
-            <Typography variant="h5" component="h2">
-              Stats:
-            </Typography>
-            <ul>
-              {stats.map(stat => (
-                <li key={stat.stat.name}>
-                  {stat.stat.name}: {stat.base_stat}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </Grid>
-    </Grid>
+    </Paper>
   );
 };
 

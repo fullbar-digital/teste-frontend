@@ -1,69 +1,113 @@
-import React, { useState } from 'react';
-import { TextField, Select, MenuItem, Button, Box } from '@mui/material';
+import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from '@mui/material';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+
+const validationSchema = yup.object({
+  initialPokemon: yup
+    .number()
+    .min(1, 'O número mínimo é 1')
+    .max(
+      yup.ref('finalPokemon'),
+      'O número inicial não pode ser maior que o número final',
+    )
+    .required('Campo obrigatório'),
+  finalPokemon: yup
+    .number()
+    .min(
+      yup.ref('initialPokemon'),
+      'O número final não pode ser menor que o número inicial',
+    )
+    .max(898, 'O número máximo é 898')
+    .required('Campo obrigatório'),
+});
 
 const PokemonFilter = ({ onFilterChange }) => {
-  const [initialPokemon, setInitialPokemon] = useState(1);
-  const [finalPokemon, setFinalPokemon] = useState(898);
-  const [perPage, setPerPage] = useState(20);
-  const [paginationType, setPaginationType] = useState('infinite-scroll');
-
-  const handleApplyFilter = () => {
-    onFilterChange({ initialPokemon, finalPokemon, perPage, paginationType });
-  };
-
-  const handleInitialPokemonChange = event => {
-    setInitialPokemon(event.target.value);
-  };
-
-  const handleFinalPokemonChange = event => {
-    setFinalPokemon(event.target.value);
-  };
-
-  const handlePerPageChange = event => {
-    setPerPage(event.target.value);
-  };
-
-  const handlePaginationTypeChange = event => {
-    setPaginationType(event.target.value);
-  };
-
+  const formik = useFormik({
+    initialValues: {
+      initialPokemon: 1,
+      finalPokemon: 898,
+      perPage: 20,
+      paginationType: 'infinite-scroll',
+    },
+    validationSchema,
+    onSubmit: values => {
+      onFilterChange(values);
+    },
+  });
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', my: 3 }}>
-      <TextField
-        label="Initial Pokemon"
-        type="number"
-        value={initialPokemon}
-        onChange={handleInitialPokemonChange}
-        inputProps={{ min: 1, max: finalPokemon }}
-      />
-      <TextField
-        label="Final Pokemon"
-        type="number"
-        value={finalPokemon}
-        onChange={handleFinalPokemonChange}
-        inputProps={{ min: initialPokemon, max: 898 }}
-      />
-      <Select value={perPage} onChange={handlePerPageChange} sx={{ mx: 2 }}>
-        <MenuItem value={10}>10</MenuItem>
-        <MenuItem value={20}>20</MenuItem>
-        <MenuItem value={30}>30</MenuItem>
-      </Select>
-      <Select
-        value={paginationType}
-        onChange={handlePaginationTypeChange}
-        sx={{ mx: 2 }}
-      >
-        <MenuItem value="infinite-scroll">Scroll Infinito</MenuItem>
-        <MenuItem value="pagination">Paginação</MenuItem>
-      </Select>
-      <Button variant="contained" onClick={handleApplyFilter}>
-        Aplicar Filtro
-      </Button>
+    <Box component="form" onSubmit={formik.handleSubmit}>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={3} lg={3}>
+          <TextField
+            fullWidth
+            id="initialPokemon"
+            name="initialPokemon"
+            label="Pokémon Inicial"
+            type="number"
+            value={formik.values.initialPokemon}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.initialPokemon &&
+              Boolean(formik.errors.initialPokemon)
+            }
+            helperText={
+              formik.touched.initialPokemon && formik.errors.initialPokemon
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3} lg={3}>
+          <TextField
+            fullWidth
+            id="finalPokemon"
+            name="finalPokemon"
+            label="Pokémon Final"
+            type="number"
+            value={formik.values.finalPokemon}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.finalPokemon && Boolean(formik.errors.finalPokemon)
+            }
+            helperText={
+              formik.touched.finalPokemon && formik.errors.finalPokemon
+            }
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3} lg={3}>
+          <FormControl fullWidth>
+            <InputLabel id="paginationType-label">Tipo de Paginação</InputLabel>
+            <Select
+              labelId="paginationType-label"
+              id="paginationType"
+              name="paginationType"
+              value={formik.values.paginationType}
+              label="Tipo de Paginação"
+              onChange={formik.handleChange}
+            >
+              <MenuItem value="infinite-scroll">Infinite Scroll</MenuItem>
+              <MenuItem value="pagination">Paginação</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6} md={3} lg={3}>
+          <Button fullWidth color="primary" variant="contained" type="submit">
+            Aplicar Filtro
+          </Button>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
-
 PokemonFilter.propTypes = {
   onFilterChange: PropTypes.func.isRequired,
 };

@@ -12,6 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
+import LazyLoad from 'react-lazyload';
 import PokemonFilter from './PokemonFilter';
 
 const PokemonList = () => {
@@ -26,9 +27,26 @@ const PokemonList = () => {
   });
   const observer = useRef();
 
+  const getFilteredPokemonList = useCallback(
+    async results => {
+      const pokemonPromises = results.map(pokemon =>
+        axios.get(pokemon.url).then(responseDetail => responseDetail.data),
+      );
+
+      const pokemonDataList = await Promise.all(pokemonPromises);
+      return pokemonDataList.filter(
+        pokemon =>
+          pokemon.id >= filter.initialPokemon &&
+          pokemon.id <= filter.finalPokemon,
+      );
+    },
+    [filter],
+  );
   const handleFilterChange = newFilter => {
+    setPokemonList([]);
     setFilter(newFilter);
   };
+
   const loadPokemonList = useCallback(
     (
       url = `https://pokeapi.co/api/v2/pokemon?limit=${filter.perPage}&offset=0`,
@@ -37,28 +55,16 @@ const PokemonList = () => {
 
       axios
         .get(url)
-        .then(response => {
+        .then(async response => {
           const { results, next } = response.data;
-          const pokemonPromises = results.map(pokemon =>
-            axios.get(pokemon.url).then(responseDetail => responseDetail.data),
-          );
+          const filteredPokemonList = await getFilteredPokemonList(results);
 
-          Promise.all(pokemonPromises)
-            .then(pokemonDataList => {
-              const filteredPokemonList = pokemonDataList.filter(
-                pokemon =>
-                  pokemon.id >= filter.initialPokemon &&
-                  pokemon.id <= filter.finalPokemon,
-              );
-
-              setPokemonList(prevPokemonList => [
-                ...prevPokemonList,
-                ...filteredPokemonList,
-              ]);
-              setNextUrl(next);
-              setIsLoading(false);
-            })
-            .catch(error => console.log(error));
+          setPokemonList(prevPokemonList => [
+            ...prevPokemonList,
+            ...filteredPokemonList,
+          ]);
+          setNextUrl(next);
+          setIsLoading(false);
         })
         .catch(error => console.log(error));
     },
@@ -66,11 +72,9 @@ const PokemonList = () => {
   );
 
   useEffect(() => {
-    // Limpa a lista de Pokémon quando o filtro é atualizado
     setPokemonList([]);
     setNextUrl('');
     setIsLoading(false);
-    // Recarrega a lista de Pokémon com base no novo estado do filtro
     loadPokemonList(
       `https://pokeapi.co/api/v2/pokemon?limit=${filter.perPage}&offset=0`,
     );
@@ -79,6 +83,7 @@ const PokemonList = () => {
   useEffect(() => {
     loadPokemonList();
   }, [loadPokemonList]);
+
   useEffect(() => {
     if (!isLoading || !document.querySelector('#observer')) {
       return;
@@ -103,12 +108,13 @@ const PokemonList = () => {
 
     loadPokemonList(nextUrl);
   }, [isLoading, nextUrl, loadPokemonList]);
+
   const handleNextPageClick = useCallback(() => {
-    const nextPage = nextUrl.split('offset=')[1];
-    loadPokemonList(
-      `https://pokeapi.co/api/v2/pokemon?limit=${filter.perPage}&offset=${nextPage}`,
-    );
-  }, [nextUrl, filter.perPage, loadPokemonList]);
+    setPokemonList([]);
+    if (nextUrl) {
+      loadPokemonList(nextUrl);
+    }
+  }, [nextUrl, loadPokemonList]);
 
   return (
     <Grid container spacing={2} bgcolor="default">
@@ -129,12 +135,14 @@ const PokemonList = () => {
         <Grid item xs={12} sm={6} md={4} key={uuidv4()}>
           <Card>
             <CardActionArea component={Link} to={`/pokemon/${pokemon.name}`}>
-              <CardMedia
-                component="img"
-                height="250"
-                image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
-                alt={pokemon.name}
-              />
+              <LazyLoad height={250} once>
+                <CardMedia
+                  component="img"
+                  height="250"
+                  image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+                  alt={pokemon.name}
+                />
+              </LazyLoad>
               <CardContent>
                 <Typography gutterBottom variant="h6" component="h2">
                   #{pokemon.id} - {pokemon.name}
