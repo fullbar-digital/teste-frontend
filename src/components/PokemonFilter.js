@@ -28,7 +28,7 @@ const validationSchema = yup.object({
       yup.ref('initialPokemon'),
       'O número final não pode ser menor que o número inicial',
     )
-    .max(898, 'O número máximo é 898')
+    .max(1000, 'O número máximo é 1000')
     .required('Campo obrigatório'),
 });
 
@@ -36,7 +36,7 @@ const PokemonFilter = ({ onFilterChange }) => {
   const formik = useFormik({
     initialValues: {
       initialPokemon: 1,
-      finalPokemon: 898,
+      finalPokemon: 1000,
       perPage: 20,
       paginationType: 'infinite-scroll',
     },

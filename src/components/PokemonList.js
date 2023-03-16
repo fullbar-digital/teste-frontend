@@ -21,7 +21,7 @@ const PokemonList = () => {
   const [nextUrl, setNextUrl] = useState('');
   const [filter, setFilter] = useState({
     initialPokemon: 1,
-    finalPokemon: 898,
+    finalPokemon: 1000,
     paginationType: 'infinite-scroll',
     perPage: 20,
   });

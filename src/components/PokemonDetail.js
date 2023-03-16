@@ -48,19 +48,20 @@ const PokemonDetail = () => {
           minHeight="100vh"
           xs={12}
         >
-          <Grid item xs={12} md={10} justifyContent="center">
+          <Grid item xs={12} md={6} justifyContent="center">
             <Typography variant="h4" component="h1" align="center">
               #{id} {`${capitalize(name)}`}
             </Typography>
-            <Box display="flex" justifyContent="center" alignItems="center">
+            <Box justifyContent="center" alignItems="center">
               <LazyLoadImage
                 onError={e => {
                   e.target.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
                 }}
                 delayMethod="debounce"
+                justifyContent="center"
+                alignItems="center"
                 effect="blur"
-                height="400"
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
+                src={`//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
                 alt={name}
                 width="100%"
                 style={{
@@ -98,7 +99,7 @@ const PokemonDetail = () => {
                   {abilities.map(ability => ability.ability.name).join(', ')}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={5} textAlign="right">
+              <Grid item xs={12} md={5}>
                 <Typography
                   variant="h4"
                   component="h2"
