@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Pokemon';
+  src: local('Pokemon'),
+       url('./Pokemon.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Modum';
+  src: local('Modum'),
+       url('./Modum.ttf') format('truetype');
+}
