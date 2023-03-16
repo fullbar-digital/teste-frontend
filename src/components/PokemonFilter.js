@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import '../fonts/fonts.css';
 
 const validationSchema = yup.object({
   initialPokemon: yup
@@ -28,7 +29,7 @@ const validationSchema = yup.object({
       yup.ref('initialPokemon'),
       'O número final não pode ser menor que o número inicial',
     )
-    .max(1000, 'O número máximo é 1000')
+    .max(1008, 'O número máximo é 1008')
     .required('Campo obrigatório'),
 });
 
@@ -36,7 +37,7 @@ const PokemonFilter = ({ onFilterChange }) => {
   const formik = useFormik({
     initialValues: {
       initialPokemon: 1,
-      finalPokemon: 1000,
+      finalPokemon: 1008,
       perPage: 20,
       paginationType: 'infinite-scroll',
     },

@@ -49,7 +49,12 @@ const PokemonDetail = () => {
           xs={12}
         >
           <Grid item xs={12} md={6} justifyContent="center">
-            <Typography variant="h4" component="h1" align="center">
+            <Typography
+              variant="h1"
+              component="h1"
+              align="center"
+              fontFamily="Modum"
+            >
               #{id} {`${capitalize(name)}`}
             </Typography>
             <Box justifyContent="center" alignItems="center">
@@ -74,10 +79,11 @@ const PokemonDetail = () => {
             <Grid container spacing={2} justifyContent="center">
               <Grid item xs={12} md={5}>
                 <Typography
-                  variant="h4"
+                  variant="h1"
                   component="h2"
                   mb={5}
                   justifyContent="center"
+                  fontFamily="Modum"
                 >
                   Details
                 </Typography>
@@ -101,10 +107,11 @@ const PokemonDetail = () => {
               </Grid>
               <Grid item xs={12} md={5}>
                 <Typography
-                  variant="h4"
+                  variant="h1"
                   component="h2"
                   mb={2}
                   justifyContent="center"
+                  fontFamily="Modum"
                 >
                   Stats
                 </Typography>
