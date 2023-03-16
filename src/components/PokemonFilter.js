@@ -103,7 +103,7 @@ const PokemonFilter = ({ onFilterChange }) => {
 
         <Grid item xs={12} sm={6} md={3} lg={3}>
           <FormControl fullWidth>
-            <InputLabel id="paginationType-label">Paginação</InputLabel>
+            <InputLabel id="paginationType-label">Paginacao</InputLabel>
             <Select
               labelId="paginationType-label"
               id="paginationType"
