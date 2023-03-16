@@ -24,7 +24,8 @@ const PokemonDetail = () => {
         setPokemonData(response.data);
         setIsLoading(false);
       })
-      .catch(error => console.log(error));
+      // eslint-disable-next-line
+      .catch(error => console.error(error));
   }, [name]);
 
   if (!name) {
@@ -53,6 +54,9 @@ const PokemonDetail = () => {
             <CardMedia
               component="img"
               height="auto"
+              onError={e => {
+                e.target.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+              }}
               image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`}
               alt={name}
               sx={{ objectFit: 'contain' }}
