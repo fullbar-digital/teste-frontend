@@ -7,13 +7,14 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia,
   Grid,
   Typography,
+  Paper,
 } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
-import LazyLoad from 'react-lazyload';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import PokemonFilter from './PokemonFilter';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -130,37 +131,41 @@ const PokemonList = () => {
       </Grid>
       {pokemonList.map(pokemon => (
         <Grid item xs={12} sm={6} md={4} key={uuidv4()}>
-          <Card>
-            <CardActionArea component={Link} to={`/pokemon/${pokemon.name}`}>
-              <Typography gutterBottom variant="h6" component="h2" ml={2}>
-                #{pokemon.id}
-              </Typography>
-              <LazyLoad height={250} once>
-                <CardMedia
+          <Paper elevation={20}>
+            <Card>
+              <CardActionArea component={Link} to={`/pokemon/${pokemon.name}`}>
+                <Typography variant="h6" component="h2" ml={2}>
+                  #{pokemon.id}
+                </Typography>
+
+                <LazyLoadImage
                   onError={e => {
                     e.target.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
                   }}
-                  component="img"
+                  delayMethod="debounce"
+                  effect="blur"
                   height="250"
-                  image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemon.id}.gif`}
                   alt={pokemon.name}
-                  sx={{
+                  width="100%"
+                  style={{
                     objectFit: 'contain',
                   }}
                 />
-              </LazyLoad>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {`${capitalize(pokemon.name)}`}
-                </Typography>
-                {pokemon.types && (
-                  <Typography variant="body1" component="p">
-                    {pokemon.types.map(type => type.type.name).join(' ')}
+
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {`${capitalize(pokemon.name)}`}
                   </Typography>
-                )}
-              </CardContent>
-            </CardActionArea>
-          </Card>
+                  {pokemon.types && (
+                    <Typography variant="body1" component="p">
+                      {pokemon.types.map(type => type.type.name).join('/')}
+                    </Typography>
+                  )}
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Paper>
         </Grid>
       ))}
 
